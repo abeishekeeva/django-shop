@@ -1,0 +1,11 @@
+myshop/__pycache__
+account/__pycache__
+account/migrations
+shop/__pycache__
+shop/migrations
+media/
+db.sqlit3
+../venv/
+cart/__pycache__
+cart/migrations
+db.sqlite3
