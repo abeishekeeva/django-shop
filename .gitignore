@@ -5,3 +5,5 @@ shop/__pycache__
 shop/migrations
 media/
 db.sqlite3
+cart/__pycache__
+cart/migrations

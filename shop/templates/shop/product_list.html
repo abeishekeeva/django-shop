@@ -163,7 +163,6 @@
                         <div class="product__list another-product-style">
                             <!-- Start Single Product -->
                             {% for product in products %}
-<<<<<<< HEAD
                                 <div class="col-md-3 single__pro col-lg-3 cat--1 col-sm-4 col-xs-12">
                                     <div class="product foo">
                                         <div class="product__inner">
@@ -183,19 +182,6 @@
                                                     <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
                                                 </ul>
                                             </div>
-=======
-                            <div class="col-md-3 single__pro col-lg-3 cat--1 col-sm-4 col-xs-12">
-                                <div class="product foo">
-                                    <div class="product__inner">
-                                        <div class="pro__thumb">
-                                            <a href="#">
-                                                {% if product.image %}
-                                                <img src="{{product.image.url }}" alt="product images">
-                                                {% else %}
-                                                <img src="{% static 'images/product/1.png' %}" alt="product images">
-                                                {% endif %}
-                                            </a>
->>>>>>> 8ffa6bbc5d17be24899e8b5c717856b11fa5b6d1
                                         </div>
                                         <div class="product__details">
                                             <h2><a href="product-details.html">{{product.name}}</a></h2>
@@ -205,19 +191,7 @@
                                             </ul>
                                         </div>
                                     </div>
-<<<<<<< HEAD
                                 </div>
-=======
-                                    <div class="product__details">
-                                        <h2><a href="product-details.html">{{product.name}}</a></h2>
-                                        <ul class="product__price">
-                                            <!-- <li class="old__price">$16.00</li> -->
-                                            <li class="new__price">{{product.price}}</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
->>>>>>> 8ffa6bbc5d17be24899e8b5c717856b11fa5b6d1
                             {% endfor %}
                             
                             <!-- End Single Product -->
@@ -228,7 +202,6 @@
                     <div class="row mt--60">
                         <div class="col-md-12">
                             <div class="htc__loadmore__btn">
-<<<<<<< HEAD
                                 <!-- Вот сюда -->
                                 {% if products.has_previous %}
                                     <a href="?page=1">&laquo; first</a>
@@ -243,19 +216,6 @@
                                 <a href="?page={{ products.next_page_number }}">next</a>
                                 <a href="?page={{ products.paginator.num_pages }}">last &raquo;</a>
                             {% endif %}                                
-=======
-                                {% if products.has_previous %}
-                                <a href="?page=1">&laquo; first</a>
-                                <a href="?page={{ products.previous_page_number }}">previous</a>
-                            {% endif %}
-                            <span class="current">
-                                Page {{ products.number }} of {{ products.paginator.num_pages }}.
-                            </span>
-                            {% if products.has_next %}
-                                <a href="?page={{ products.next_page_number }}">next</a>
-                                <a href="?page={{ products.paginator.num_pages }}">last &raquo;</a>
-                            {% endif %}
->>>>>>> 8ffa6bbc5d17be24899e8b5c717856b11fa5b6d1
                             </div>
                         </div>
                     </div>
