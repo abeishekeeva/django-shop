@@ -1,7 +1,0 @@
-myshop/__pycache__
-account/__pycache__
-account/migrations
-shop/__pycache__
-shop/migrations
-media/
-db.sqlite3
