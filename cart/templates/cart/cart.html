@@ -24,11 +24,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    {% for item in cart %}
+
+                                    {% endfor %}
                                         <tr>
                                             <td class="product-thumbnail"><a href="#"><img src="images/product/4.png" alt="product img" /></a></td>
-                                            <td class="product-name"><a href="#">Vestibulum suscipit</a></td>
-                                            <td class="product-price"><span class="amount">{{ cart.total_price }}</span></td>
-                                            <td class="product-quantity"><input type="number" value="1" /></td>
+                                            <td class="product-name"><a href="#">{{ item.name }}</a></td>
+                                            <td class="product-price"><span class="amount">{{ item.price }}</span></td>
+                                            <td class="product-quantity"><input type="number" value="{{ item.quantity}}" /></td>
                                             <td class="product-subtotal">{{ cart.total_price }}</td>
                                             <td class="product-remove"><a href="#">X</a></td>
                                         </tr>
