@@ -126,10 +126,7 @@ STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-<<<<<<< HEAD
 
 CART_SESSION_ID = 'cart'
-=======
 CART_SESSION_ID = 'cart'
 
->>>>>>> main

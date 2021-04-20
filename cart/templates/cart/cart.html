@@ -1,9 +1,11 @@
 {% extends 'shop/base.html' %}
 {% load static %}
 
-{% block content %}
 
-<div class="cart-main-area ptb--120 bg__white">
+{% block content %}
+        {% include 'shop/header.html' %}
+        <!-- cart-main-area start -->
+        <div class="cart-main-area ptb--120 bg__white">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -21,22 +23,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="product-thumbnail"><a href="#"><img src="images/product/4.png" alt="product img" /></a></td>
-                                            <td class="product-name"><a href="#">Vestibulum suscipit</a></td>
-                                            <td class="product-price"><span class="amount">£165.00</span></td>
-                                            <td class="product-quantity"><input type="number" value="1" /></td>
-                                            <td class="product-subtotal">£165.00</td>
-                                            <td class="product-remove"><a href="#">X</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-thumbnail"><a href="#"><img src="images/product/3.png" alt="product img" /></a></td>
-                                            <td class="product-name"><a href="#">Vestibulum dictum magna</a></td>
-                                            <td class="product-price"><span class="amount">£50.00</span></td>
-                                            <td class="product-quantity"><input type="number" value="1" /></td>
-                                            <td class="product-subtotal">£50.00</td>
-                                            <td class="product-remove"><a href="#">X</a></td>
-                                        </tr>
+
+                                        {% for item in cart %}
+                                            <tr>
+                                                <td class="product-thumbnail"><a href="#"><img src="images/product/4.png" alt="product img" /></a></td>
+                                                <td class="product-name"><a href="#">{{item.name}}</a></td>
+                                                <td class="product-price"><span class="amount">{{item.price}}</span></td>
+                                                <td class="product-quantity"><input type="number" value="{{item.quantity}}" /></td>
+                                                <td class="product-subtotal"></td>
+                                                <td class="product-remove"><a href="{%url 'cart:delete_from_cart', product_id = item.product.id %}">X</a></td>
+                                            </tr> 
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
@@ -62,19 +59,22 @@
                                                     <th>Subtotal</th>
                                                     <td><span class="amount">{{cart.total_price}}</span></td>
 
-</tr>
+                                                </tr>
+
                                                 <tr class="shipping">
                                                     <th>Shipping</th>
                                                     <td>
                                                         <ul id="shipping_method">
                                                             <li>
+
                                                                 <input type="radio" />
                                                                 <label>
                                                                     Flat Rate: <span class="amount">£7.00</span>
                                                                 </label>
                                                             </li>
                                                             <li>
-                                                                <input type="radio" />
+                                                                <input type="radio" /> 
+
                                                                 <label>
                                                                     Free Shipping
                                                                 </label>
@@ -102,6 +102,5 @@
                     </div>
                 </div>
             </div>
-        </div>
-
+        </div><!-- cart-main-area end -->
 {% endblock %}
