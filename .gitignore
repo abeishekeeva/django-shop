@@ -5,11 +5,6 @@ shop/__pycache__
 shop/migrations
 media/
 db.sqlite3
-<<<<<<< HEAD
-cart/__pycash__
-cart/migrations
-=======
 cart/__pycache__
 cart/migrations
->>>>>>> main
 .idea
