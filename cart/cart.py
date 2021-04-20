@@ -6,11 +6,7 @@ class Cart:
 
     def __init__(self, request):
         self.session = request.session 
-        {
-            'wishlist': {},
-            'waiting' : {},
-            'cart': {}
-        }                
+                     
         cart = self.session.get(settings.CART_SESSION_ID) #None, если корзины нет
         if cart is None: 
             cart = self.session[settings.CART_SESSION_ID] = {} #{'cart': {}}
@@ -34,8 +30,8 @@ class Cart:
 
     def remove(self, product): 
         product_id = str(product.id)
-        if product_id in self.cart:
-            del self.cart[product.id]        
+        if product_id in self.cart:            
+            del self.cart[product_id]        
             self.save()
     
     def clear(self):

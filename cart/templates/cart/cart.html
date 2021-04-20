@@ -31,7 +31,7 @@
                                                 <td class="product-price"><span class="amount">{{item.price}}</span></td>
                                                 <td class="product-quantity"><input type="number" value="{{item.quantity}}" /></td>
                                                 <td class="product-subtotal"></td>
-                                                <td class="product-remove"><a href="#">X</a></td>
+                                                <td class="product-remove"><a href="{% url 'cart:delete_from_cart' product_id=item.product.id%}">X</a></td>
                                             </tr> 
                                         {% endfor %}                                                                              
                                     </tbody>
