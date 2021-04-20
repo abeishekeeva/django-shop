@@ -1,14 +1,15 @@
 from shop.models import Product
+from django.conf import settings
 
 class Cart:
 
-    def __init__(self, request, product):
+    def __init__(self, request):
         self.session= request.session
         {'CART':{}}
-        cart= self.session.get(CART_SESSION_ID)
+        cart= self.session.get(settings.CART_SESSION_ID)
         if cart is None:
-            cart= self.session[CART_SESSION_ID]=}{}{'CART':{}}
-            self.cart=cart
+            cart= self.session[settings.CART_SESSION_ID]={'CART':{}}
+        self.cart=cart
 
     def add(self, product, quantity=1, override_quantity=False):
         
@@ -27,8 +28,28 @@ class Cart:
         if product_id in self.cart:
             del self.cart[product_id]
 
-        self.save()
+            self.save()
 
+    def remove(self, product):
+        product_id = str(product_id)
+
+    def __len__(self):
+        total_quantity = 0
+        products = self.cart
+        for product in products:
+            total_quantity+=product['quantity'] 
+
+        return total_quantity
+
+    def total_price(self):
+        total_price=0
+        products = self.cart
+        for product in products:
+            total_price+=product['price']*product['quantity']
+        return total_price
+            
+
+   
     def save(self):
         self.session.modified = True
     
