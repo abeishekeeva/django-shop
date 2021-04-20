@@ -29,11 +29,11 @@
                                     <li><a href="blog-details.html">Blog details</a></li>
                                 </ul>
                             </li>
-                            <li class="drop"><a href="shop.html">Shop</a>
+                            <li class="drop"><a href="{% url 'shop:product_list'%}">Shop</a>
                             </li>
                             <li class="drop"><a href="#">pages</a>
                                 <ul class="dropdown">                                                                                                                                         
-                                    <li><a href="cart.html">cart</a></li>
+                                    <li><a href="{% url 'cart:cart_detail'%}">cart</a></li>
                                     <li><a href="wishlist.html">wishlist</a></li>
                                     <li><a href="checkout.html">checkout</a></li>
                                     <li><a href="team.html">team</a></li>                                    
@@ -63,8 +63,8 @@
                                 <li><a href="#">pages</a>
                                     <ul>
                                         <li><a href="about.html">about</a></li>                                        
-                                        <li><a href="shop.html">shop</a></li>                                                                          
-                                        <li><a href="cart.html">cart</a></li>
+                                        <li><a href="{% url 'shop:product_list'%}">shop</a></li>
+                                        <li><a href="{% url 'cart:cart_detail'%}">cart</a></li>
                                         <li><a href="wishlist.html">wishlist</a></li>
                                         <li><a href="checkout.html">checkout</a></li>
                                         <li><a href="team.html">team</a></li>

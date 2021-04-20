@@ -162,18 +162,21 @@
                     <div class="row">
                         <div class="product__list another-product-style">
                             <!-- Start Single Product -->
+                            {% for product in products %}
                             <div class="col-md-3 single__pro col-lg-3 cat--1 col-sm-4 col-xs-12">
                                 <div class="product foo">
                                     <div class="product__inner">
                                         <div class="pro__thumb">
                                             <a href="#">
+                                                {% if product.image %}
                                                 <img src="{% static 'images/product/1.png' %}" alt="product images">
+
                                             </a>
                                         </div>
                                         <div class="product__hover__info">
                                             <ul class="product__action">
                                                 <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
+                                                <li><a title="Add TO Cart" href="{% url 'cart:add_from_main' product_id=product.id %}"><span class="ti-shopping-cart"></span></a></li>
                                                 <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
                                             </ul>
                                         </div>
