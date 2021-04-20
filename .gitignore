@@ -9,3 +9,5 @@ db.sqlit3
 cart/__pycache__
 cart/migrations
 db.sqlite3
+cart/__pycache__
+cart/migrations
