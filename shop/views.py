@@ -3,8 +3,7 @@ from .models import Category, Product
 from django.core.paginator import Paginator
 
 def product_list(request, category_slug=None): 
-    request.session['product'] = 'jeans'
-    print('test', request.session['product']) #jeans 
+     
     category = None
     categories = Category.objects.all()
     products = Product.objects.all()
@@ -26,3 +25,7 @@ def product_list(request, category_slug=None):
 def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
     return render(request, 'shop/detail.html', {'product': product})
+
+
+
+
