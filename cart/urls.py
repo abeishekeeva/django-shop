@@ -8,9 +8,15 @@ app_name = 'cart'
 
 urlpatterns = [
     path('detail/', views.cart_detail, name='cart_detail'),
+<<<<<<< HEAD
     path('add_from_main/<int:product_id>', views.cart_add_from_main, name='add_from_main'),
     path('delete_item_id/<int:product_id>', views.cart_delete_item_id, name='delete_item_id'),
     path('cart_add/<int:product_id>', views.cart_add_product, name='cart_add'),
 
+=======
+    path('cart_add/<int:product_id>', views.cart_add_product, name='cart_add'),
+    path('add_from_main/<int:product_id>', views.cart_add_from_main, name='add_from_main'),
+    path('delete_from_cart/<int:product_id>', views.cart_delete_product, name='delete_from_cart')
+>>>>>>> origin
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
