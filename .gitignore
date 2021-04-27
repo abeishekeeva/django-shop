@@ -6,4 +6,9 @@ shop/migrations
 media/
 db.sqlite3
 cart/__pycache__
+<<<<<<< HEAD
 cart/migrations 
+=======
+cart/migrations
+static/
+>>>>>>> 1cd8cb2885fa20310957184f0f67ba12858b7678

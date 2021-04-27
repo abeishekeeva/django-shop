@@ -39,9 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop',
     'account',
+<<<<<<< HEAD
     'cart',
     'wishlist'
     ]
+=======
+    'cart'
+]
+>>>>>>> 1cd8cb2885fa20310957184f0f67ba12858b7678
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -64,7 +69,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
+                'django.contrib.auth.context_processors.auth',  
                 'django.contrib.messages.context_processors.messages',
                 'cart.context_processor.cart'
             ],
@@ -128,6 +133,11 @@ STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+<<<<<<< HEAD
 
 CART_SESSION_ID = 'cart'
 WISHLIST_SESSION_ID = 'wishlist'
+=======
+CART_SESSION_ID = 'cart'
+
+>>>>>>> 1cd8cb2885fa20310957184f0f67ba12858b7678
