@@ -6,13 +6,8 @@ from decimal import Decimal
 class Cart: 
 
     def __init__(self, request):
-        self.session = request.session 
-        {
-            'wishlist': {},
-            'waiting' : {},
-            'cart': {}
-        }                
-        cart = self.session.get(settings.CART_SESSION_ID)
+        self.session = request.session
+        cart = self.session.get(settings.CART_SESSION_ID) #None, если корзины нет
         if cart is None: 
             cart = self.session[settings.CART_SESSION_ID] = {}
         self.cart = cart         
@@ -35,7 +30,7 @@ class Cart:
 
     def remove(self, product): 
         product_id = str(product.id)
-        if product_id in self.cart:
+        if product_id in self.cart:            
             del self.cart[product_id]
             self.save()
     
@@ -64,13 +59,10 @@ class Cart:
             item['total_price'] = item['price'] * item['quantity']
             yield item
 
-    def total_price(self):
-        total_price = 0 
-        products = self.cart 
-        for product in products.values():
-            total_price += float(product['quantity']) * float(product['price'])
-            
-        return total_price
-
-    def save(self): 
+    def save(self):
+        # mark the session as "modified" to make sure it gets saved
         self.session.modified = True
+
+
+    def total_price(self):
+        return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
