@@ -12,9 +12,9 @@ class Cart:
             'waiting' : {},
             'cart': {}
         }                
-        cart = self.session.get(settings.CART_SESSION_ID) #None, если корзины нет
+        cart = self.session.get(settings.CART_SESSION_ID)
         if cart is None: 
-            cart = self.session[settings.CART_SESSION_ID] = {} #{'cart': {}}
+            cart = self.session[settings.CART_SESSION_ID] = {}
         self.cart = cart         
     
     
@@ -36,7 +36,7 @@ class Cart:
     def remove(self, product): 
         product_id = str(product.id)
         if product_id in self.cart:
-            del self.cart[product.id]        
+            del self.cart[product_id]
             self.save()
     
     def clear(self):
