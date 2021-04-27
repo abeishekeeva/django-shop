@@ -81,7 +81,7 @@
                     <ul class="menu-extra">
                         <li class="search search__open hidden-xs"><span class="ti-search"></span></li>
                         <li><a href="{% url 'cart:cart_detail' %}"><span class="ti-user"></span></a></li>
-                        <li class="cart__menu"><span class="ti-shopping-cart"></span></li>                        
+                        <li class="cart__menu"><span class="ti-shopping-cart">{{cart|length}} item{{cart|pluralize:",s" }}</span></li>                        
                     </ul>
                 </div>
             </div>

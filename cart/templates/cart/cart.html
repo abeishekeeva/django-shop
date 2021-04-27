@@ -21,22 +21,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="product-thumbnail"><a href="#"><img src="images/product/4.png" alt="product img" /></a></td>
-                                    <td class="product-name"><a href="#">Vestibulum suscipit</a></td>
-                                    <td class="product-price"><span class="amount">£165.00</span></td>
-                                    <td class="product-quantity"><input type="number" value="1" /></td>
-                                    <td class="product-subtotal">£165.00</td>
-                                    <td class="product-remove"><a href="#">X</a></td>
-                                </tr>
+                                {% for item in cart %}
                                 <tr>
                                     <td class="product-thumbnail"><a href="#"><img src="images/product/3.png" alt="product img" /></a></td>
                                     <td class="product-name"><a href="#">Vestibulum dictum magna</a></td>
-                                    <td class="product-price"><span class="amount">£50.00</span></td>
-                                    <td class="product-quantity"><input type="number" value="1" /></td>
-                                    <td class="product-subtotal">£50.00</td>
-                                    <td class="product-remove"><a href="#">X</a></td>
+                                    <td class="product-price"><span class="amount">{{item.price}}</span></td>
+                                    <td class="product-quantity">
+                                        <form action="{% url 'cart:cart_add' product_id=item.product.id %}" method="POST">
+                                            {{item.update_quantity_form.quantity}}
+                                            {{item.update_quantity_form.override}}
+                                            <input type ="submit" value="Update">
+                                            {% csrf_token %}
+                                        </form>
+                                    </td>
+                                    <td class="product-subtotal"></td>
+                                    <td class="product-remove"><a href="{% url 'cart:delete_from_cart' product_id=item.product.id %}">X</a></td>
                                 </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -86,7 +87,7 @@
                                         <tr class="order-total">
                                             <th>Total</th>
                                             <td>
-                                                <strong><span class="amount">{{cart.Totals}}</span></strong>
+                                                <strong><span class="amount">{{cart}}</span></strong>
                                             </td>
                                         </tr>                                           
                                     </tbody>
