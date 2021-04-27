@@ -3,6 +3,7 @@ from .models import Category, Product
 from django.core.paginator import Paginator
 
 def product_list(request, category_slug=None): 
+     
     category = None
     categories = Category.objects.all()
     products = Product.objects.all()
@@ -11,7 +12,7 @@ def product_list(request, category_slug=None):
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
 
-    paginator = Paginator(products, 4)
+    paginator = Paginator(products, 2)
     page_number = request.GET.get('page')
     products = paginator.get_page(page_number)
 
@@ -19,9 +20,15 @@ def product_list(request, category_slug=None):
         {'category': category,
         'categories': categories,
         'products': products})
+        
 
 def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
     return render(request, 'shop/detail.html', {'product': product})
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 1cd8cb2885fa20310957184f0f67ba12858b7678

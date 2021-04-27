@@ -5,7 +5,6 @@ shop/__pycache__
 shop/migrations
 media/
 db.sqlite3
-.idea/
-shop-env/
 cart/__pycache__
 cart/migrations
+static/
