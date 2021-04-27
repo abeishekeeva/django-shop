@@ -44,7 +44,7 @@
         <!-- End Offset Wrapper -->
 
         <!-- Start Bradcaump area -->
-        <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url('static/images/bg/2.jpg') no-repeat scroll center center / cover ;">
+        <!-- <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url('static/images/bg/2.jpg') no-repeat scroll center center / cover ;">
             <div class="ht__bradcaump__wrap">
                 <div class="container">
                     <div class="row">
@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- End Bradcaump area --> 
 
         <!-- Start Our Product Area -->
@@ -167,7 +167,7 @@
                                 <div class="product foo">
                                     <div class="product__inner">
                                         <div class="pro__thumb">
-                                            <a href="#">
+                                            <a href="{% url 'shop:product_detail' product_id=product.id %}">
                                                 {% if product.image %}
                                                 <img src="{{product.image.url }}" alt="product images">
                                                 {% else %}
@@ -178,13 +178,13 @@
                                         <div class="product__hover__info">
                                             <ul class="product__action">
                                                 <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                <li><a title="Add TO Cart" href="cart.html"><span class="ti-shopping-cart"></span></a></li>
-                                                <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                <li><a title="Add TO Cart" href='{% url "cart:add_from_main" product_id=product.id %}'><span class="ti-shopping-cart"></span></a></li>
+                                                <li><a title="Wishlist" href="{wishlist.html}"><span class="ti-heart"></span></a></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="product__details">
-                                        <h2><a href="product-details.html">{{product.name}}</a></h2>
+                                        <h2><a href='{% url "shop:product_detail" product_id=product.id %}'>{{product.name}}</a></h2>
                                         <ul class="product__price">
                                             <!-- <li class="old__price">$16.00</li> -->
                                             <li class="new__price">{{product.price}}</li>

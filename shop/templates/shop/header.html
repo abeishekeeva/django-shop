@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3">
                     <div class="logo">
-                        <a href="index.html">
+                        <a href='{% url "shop:product_list" %}'>
                             <img src="{% static 'images/logo/logo.png' %}" alt="logo">
                         </a>
                     </div>
@@ -16,30 +16,30 @@
                 <div class="col-md-8 col-lg-8 col-sm-6 col-xs-6">
                     <nav class="mainmenu__nav hidden-xs hidden-sm">
                         <ul class="main__menu">
-                            <li class="drop"><a href="index.html">Home</a></li>
-                            <li class="drop"><a href="portfolio-card-box-2.html">portfolio</a>
-                                <ul class="dropdown">
-                                    <li><a href="portfolio-card-box-2.html">portfolio</a></li>
-                                    <li><a href="single-portfolio.html">Single portfolio</a></li>
-                                </ul>
+                            <li class="drop"><a href='{% url "shop:product_list" %}'>Home</a></li>
+                            <li class="drop"><a href='{% url "shop:portfolio" %}'>portfolio</a>
+                                <!-- <ul class="dropdown">
+                                    <li><a href='{% url "shop:portfolio" %}'>portfolio</a></li>
+                                    <li><a href='{% url "shop:portfolio" %}'>Single portfolio</a></li>
+                                </ul> -->
                             </li>
-                            <li class="drop"><a href="blog.html">Blog</a>
-                                <ul class="dropdown">
+                            <li class="drop"><a href='{% url "shop:blog" %}'>Blog</a>
+                                <!-- <ul class="dropdown">
                                     <li><a href="blog.html">blog 3 column</a></li>
                                     <li><a href="blog-details.html">Blog details</a></li>
-                                </ul>
+                                </ul> -->
                             </li>
-                            <li class="drop"><a href="shop.html">Shop</a>
+                            <li class="drop"><a href='{% url "shop:product_list" %}'>Shop</a>
                             </li>
                             <li class="drop"><a href="#">pages</a>
                                 <ul class="dropdown">                                                                                                                                         
-                                    <li><a href="cart.html">cart</a></li>
-                                    <li><a href="wishlist.html">wishlist</a></li>
+                                    <li><a href='{% url "cart:cart_detail" %}'>cart</a></li>
+                                    <li><a href='{% url "wishlist:wishlist_detail" %}'>wishlist</a></li>
                                     <li><a href="checkout.html">checkout</a></li>
                                     <li><a href="team.html">team</a></li>                                    
                                 </ul>
                             </li>
-                            <li><a href="contact.html">contact</a></li>
+                            <li><a href='{% url "shop:contact" %}'>contact</a></li>
                         </ul>
                     </nav>
                     
@@ -47,31 +47,31 @@
                     <div class="mobile-menu clearfix visible-xs visible-sm">
                         <nav id="mobile_dropdown">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="#">portfolio</a>
+                                <li><a href='{% url "shop:product_list" %}'>Home</a></li>
+                                <li><a href='{% url "shop:portfolio" %}'>portfolio</a>
                                     <ul>
-                                        <li><a href="portfolio-card-box-2.html">portfolio</a></li>
-                                        <li><a href="single-portfolio.html">Single portfolio</a></li>
+                                        <li><a href='{% url "shop:portfolio" %}'>portfolio</a></li>
+                                        <li><a href='{% url "shop:portfolio" %}'>Single portfolio</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="blog.html">blog</a>
-                                    <ul>
+                                <li><a href='{% url "shop:blog" %}'>blog</a>
+                                    <!-- <ul>
                                         <li><a href="blog.html">blog 3 column</a></li>
                                         <li><a href="blog-details.html">Blog details</a></li>
-                                    </ul>
+                                    </ul> -->
                                 </li>
                                 <li><a href="#">pages</a>
                                     <ul>
                                         <li><a href="about.html">about</a></li>                                        
-                                        <li><a href="shop.html">shop</a></li>                                                                          
-                                        <li><a href="cart.html">cart</a></li>
-                                        <li><a href="wishlist.html">wishlist</a></li>
+                                        <li><a href='{% url "shop:product_list" %}'>shop</a></li>                                                                          
+                                        <li><a href= '{% url "cart:cart_detail" %}'>cart</a></li>
+                                        <li><a href='{% url "wishlist:wishlist_detail" %}'>wishlist</a></li>
                                         <li><a href="checkout.html">checkout</a></li>
                                         <li><a href="team.html">team</a></li>
                                         <li><a href="login-register.html">login & register</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="contact.html">contact</a></li>
+                                <li><a href='{% url "shop:contact" %}'>contact</a></li>
                             </ul>
                         </nav>
                     </div>                         
@@ -80,8 +80,11 @@
                 <div class="col-md-2 col-sm-4 col-xs-3">  
                     <ul class="menu-extra">
                         <li class="search search__open hidden-xs"><span class="ti-search"></span></li>
-                        <li><a href=""><span class="ti-user"></span></a></li>
-                        <li class="cart__menu"><span class="ti-shopping-cart"></span></li>                        
+                        <li><a href='#'><span class="ti-user"></span></a></li>
+                        <a href='{% url "cart:cart_detail" %}'><li class="cart__menu">
+                            <span  class="ti-shopping-cart">{{cart|length}} item{{cart|pluralize:",s" }}</span>
+                        </li> </a>
+                        <!-- <a href='{% url "cart:cart_detail" %}'> <li class="ti-shopping-cart"></li> </a>                       -->
                     </ul>
                 </div>
             </div>
