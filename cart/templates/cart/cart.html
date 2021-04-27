@@ -2,9 +2,10 @@
 {% extends 'shop/base.html' %}
 {% load static %}
 
-
 {% block content %}
-        {% include 'shop/header.html' %}
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    {% include 'shop/header.html' %}
+        
         <!-- cart-main-area start -->
         <div class="cart-main-area ptb--120 bg__white">
             <div class="container">
@@ -29,8 +30,15 @@
                                                 <td class="product-thumbnail"><a href="#"><img src="images/product/4.png" alt="product img" /></a></td>
                                                 <td class="product-name"><a href="#">{{item.name}}</a></td>
                                                 <td class="product-price"><span class="amount">{{item.price}}</span></td>
-                                                <td class="product-quantity"><input type="number" value="{{item.quantity}}" /></td>
-                                                <td class="product-subtotal"></td>
+                                                <td class="product-quantity">
+                                                    <form action="{% url 'cart:cart_add' item.product.id %}" method="post">
+                                                        {% csrf_token %}                                                        
+                                                        {{ item.update_quantity_form.quantity }}
+                                                        {{ item.update_quantity_form.override }}
+                                                        <input type="submit" id="update-product-bt" value="Update">                                                        
+                                                    </form>
+                                                </td>
+                                                <td class="product-subtotal">{{item.total_price}}</td>
                                                 <td class="product-remove"><a href="{% url 'cart:delete_from_cart' product_id=item.product.id %}">X</a></td>
                                             </tr> 
                                         {% endfor %}                                                                              

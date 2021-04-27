@@ -7,3 +7,4 @@ media/
 db.sqlite3
 cart/__pycache__
 cart/migrations
+static/

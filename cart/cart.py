@@ -59,13 +59,10 @@ class Cart:
             item['total_price'] = item['price'] * item['quantity']
             yield item
 
-    def total_price(self):
-        total_price = 0 
-        products = self.cart 
-        for product in products.values():
-            total_price += float(product['quantity']) * float(product['price'])
-            
-        return total_price
+    def save(self):
+        # mark the session as "modified" to make sure it gets saved
+        self.session.modified = True
 
-    def save(self): 
-        self.session.modified = True 
+
+    def total_price(self):
+        return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
