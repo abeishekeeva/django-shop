@@ -160,35 +160,6 @@
                         <div class="product__list another-product-style">
                             <!-- Start Single Product -->
                             {% for product in products %}
-<<<<<<< HEAD
-                            <div class="col-md-3 single__pro col-lg-3 cat--1 col-sm-4 col-xs-12">
-                                <div class="product foo">
-                                    <div class="product__inner">
-                                        <div class="pro__thumb">
-                                            <a href="{% url 'shop:product_detail' product_id=product.id %}">
-                                                {% if product.image %}
-                                                <img src="{{product.image.url }}" alt="product images">
-                                                {% else %}
-                                                <img src="{% static 'images/product/1.png' %}" alt="product images">
-                                                {% endif %}
-                                            </a>
-                                        </div>
-                                        <div class="product__hover__info">
-                                            <ul class="product__action">
-                                                <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
-                                                <li><a title="Add TO Cart" href='{% url "cart:add_from_main" product_id=product.id %}'><span class="ti-shopping-cart"></span></a></li>
-                                                <li><a title="Wishlist" href="{wishlist.html}"><span class="ti-heart"></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product__details">
-                                        <h2><a href='{% url "shop:product_detail" product_id=product.id %}'>{{product.name}}</a></h2>
-                                        <ul class="product__price">
-                                            <!-- <li class="old__price">$16.00</li> -->
-                                            <li class="new__price">{{product.price}}</li>
-                                        </ul>
-                                    </div>
-=======
                                 <div class="col-md-3 single__pro col-lg-3 cat--1 col-sm-4 col-xs-12">
                                     <div class="product foo">
                                         <div class="product__inner">
@@ -217,7 +188,6 @@
                                             </ul>
                                         </div>
                                     </div>
->>>>>>> 1cd8cb2885fa20310957184f0f67ba12858b7678
                                 </div>
                             {% endfor %}
                             

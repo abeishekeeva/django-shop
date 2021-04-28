@@ -26,40 +26,6 @@ def product_list(request, category_slug=None):
         'products': products})
         
 
-<<<<<<< HEAD
-def cart_detail(request):
-    cart = Cart(request)
-    for item in cart:
-        print(item)
-        item['update_quantity_form'] = ProductAddForm(initial={
-                                            'quantity': item['quantity'],
-                                            'override': True
-                                            })
-        print(item)
-    return render(request, 'cart/cart.html', {'cart': cart})        
-
-def product_detail(request, product_id):
-    product = get_object_or_404(Product, id=product_id)
-    for item in product:
-        item['update_quantity_form'] = ProductAddForm(initial={
-                                                'quantity': item['quantity'],
-                                                'override': True
-                                                })
-    return render(request, 'shop/detail.html', {'product': product})
-
-def contact(request):
-    return render(request, 'shop/contact.html', {'contact': contact})
-
-
-def portfolio(request):
-    return render(request, 'shop/portfolio.html', {'portfolio': portfolio})
-
-def blog(request):
-    return render(request, 'shop/blog.html', {'blog': blog})
-
-
-   
-=======
 def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
     return render(request, 'shop/detail.html', {'product': product})
@@ -67,4 +33,3 @@ def product_detail(request, id, slug):
 
 
 
->>>>>>> 1cd8cb2885fa20310957184f0f67ba12858b7678
