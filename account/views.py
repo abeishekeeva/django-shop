@@ -1,8 +1,13 @@
 
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm, LoginForm
 from django.views import generic
+from django.contrib.auth.models import User
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
+
 # Create your views here.
+
 
 class UserRegisterView(generic.View):
     def get(self, request):
