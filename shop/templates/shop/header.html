@@ -17,10 +17,10 @@
                     <nav class="mainmenu__nav hidden-xs hidden-sm">
                         <ul class="main__menu">
                             <li class="drop"><a href='{% url "shop:product_list" %}'>Home</a></li>
-                            
+                            <li class="drop"><a href='{% url "shop:portfolio" %}'>portfolio</a>
                         
                             </li>
-                            
+                            <li class="drop"><a href='{% url "shop:blog" %}'>Blog</a>
                                 <!-- <ul class="dropdown">
                                     <li><a href="blog.html">blog 3 column</a></li>
                                     <li><a href="blog-details.html">Blog details</a></li>
@@ -36,7 +36,7 @@
                                     <li><a href="team.html">team</a></li>                                    
                                 </ul>
                             </li>
-                            
+                            <li><a href='{% url "shop:contact" %}'>contact</a></li>
                         </ul>
                     </nav>
                     
@@ -45,7 +45,13 @@
                         <nav id="mobile_dropdown">
                             <ul>
                                 <li><a href='{% url "shop:product_list" %}'>Home</a></li>
-                               
+                                <li><a href='{% url "shop:portfolio" %}'>portfolio</a>
+                                    <ul>
+                                        <li><a href='{% url "shop:portfolio" %}'>portfolio</a></li>
+                                        <li><a href='{% url "shop:portfolio" %}'>Single portfolio</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href='{% url "shop:blog" %}'>blog</a>
                                     <ul>
                                        
                                     </ul>
@@ -67,7 +73,7 @@
                                         <li><a href="login-register.html">login & register</a></li>
                                     </ul>
                                 </li>
-                                
+                                <li><a href='{% url "shop:contact" %}'>contact</a></li>
                             </ul>
                         </nav>
                     </div>                         
