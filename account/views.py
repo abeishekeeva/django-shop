@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm, LoginForm
 from django.views import generic
 from django.contrib.auth.models import User
-from django.contrib.messages import constants as messages
+from django.contrib import messages
+from django.contrib.auth import authenticate
 # Create your views here.
 
 class UserRegisterView(generic.View):
@@ -19,7 +20,7 @@ class UserRegisterView(generic.View):
                 new_user.username = request.POST['email']
                 new_user.set_password(form.cleaned_data['password1'])
                 new_user.save()                
-                return redirect('') #редирект на логин
+                return redirect('account:user_login') #редирект на логин
             else:
                messages.error(request, 'Неправильные данные') 
         else:
@@ -41,7 +42,7 @@ class LoginView(generic.View):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return redirect('') #сюда вставить, куда редиректить
+                    return redirect('account:user_register') #сюда вставить, куда редиректить
                 else:
                     messages.error(request, 'Ваш аккаунт заблокирован')
             else:
