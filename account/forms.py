@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 
 class UserRegistrationForm(forms.ModelForm):
-    email = forms.EmailField()
+    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Введите e-mail', 'label': 'Введите e-mail'}), label='')
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Введите пароль', }), label='')
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Введите пароль повторно', }), label='')    
 
@@ -17,8 +17,8 @@ class UserRegistrationForm(forms.ModelForm):
         return cd['password2'] 
 
 class LoginForm(forms.Form):
-    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Введите e-mail', 'label': 'Введите e-mail'}), label='Введите e-mail')
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Введите пароль', }), label='Введите пароль')
+    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Введите e-mail', 'label': 'Введите e-mail'}), label='')
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Введите пароль', }), label='')
 
     def clean(self):
         email = self.cleaned_data.get('email')

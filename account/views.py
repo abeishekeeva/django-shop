@@ -1,12 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect 
 from .forms import UserRegistrationForm, LoginForm
 from django.views import generic
+from django.contrib.auth.models import User
+from django.contrib import messages 
 # Create your views here.
 
+
 class UserRegisterView(generic.View):
+
     def get(self, request):
         form = UserRegistrationForm()
         return render(request, 'account/register.html', {'form': form})
+
     def post(self, request):       
         form = UserRegistrationForm(request.POST)
         #cd = form.cleaned_data 
@@ -17,7 +22,7 @@ class UserRegisterView(generic.View):
                 new_user.username = request.POST['email']
                 new_user.set_password(form.cleaned_data['password1'])
                 new_user.save()                
-                return redirect('') #редирект на логин
+                return redirect('account:login') #редирект на логин
             else:
                messages.error(request, 'Неправильные данные') 
         else:
