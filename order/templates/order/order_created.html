@@ -1,30 +1,31 @@
 {% extends 'shop/base.html' %}
 {% load static %}
 
+{% include 'shop/header.html' %}
 {% block content %}
 <body>
-    {% include 'shop/header.html' %}
+   
     <!-- Body main wrapper start -->
     <div class="wrapper fixed__footer">
                 
-        <!-- Start Login Register Area -->
-        <div class="htc__login__register bg__white ptb--130" style="background: rgba(0, 0, 0, 0) url(images/bg/5.jpg) no-repeat scroll center center / cover ;">
+        <!-- Start Login order_created Area -->
+        <div class="htc__login__order_created bg__white ptb--130" style="background: rgba(0, 0, 0, 0) url(images/bg/5.jpg) no-repeat scroll center center / cover ;">
             <div class="container">
                 
-                <!-- Start Login Register Content -->
+                <!-- Start Login order_created Content -->
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
-                        <div class="htc__login__register__wrap">
+                        <div class="htc__login__order_created__wrap">
                             
-                            <ul class="login__register__menu" role="tablist">                            
-                                <li role="presentation" class="register"><a  role="tab" data-toggle="tab">Register</a></li>
+                            <ul class="login__order_created__menu" role="tablist">                            
+                                <li role="presentation" class="order_created"><a  role="tab" data-toggle="tab">Register</a></li>
                             </ul>        
 
-                            <div id="register" >                                
-                                <form action="{% url 'account:register' %}" class="login" method="post">
+                            <div id="order_created" >                                
+                                <form action="{% url 'order:order' %}" class="login" method="post">
                                     {{form.as_p}}
                                     {% csrf_token %}
-                                    <input type="submit" value="Register">
+                                    <input type="submit" value="Order Created">
                                 </form>
 
                                
@@ -36,13 +37,15 @@
                         </div>
                     </div>
                 </div>
-                <!-- End Login Register Content -->
+                <!-- End Login order_created Content -->
             </div>
         </div>
-        <!-- End Login Register Area -->
+        <!-- End Login order_created Area -->
 
 
     </div>
     {% include 'shop/footer.html' %}
 </body>
+
+
 {% endblock %}

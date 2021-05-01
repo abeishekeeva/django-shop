@@ -9,3 +9,4 @@ urlpatterns = [
     path('register/', views.UserRegisterView.as_view(), name='user_register'),
     path('login/', views.LoginView.as_view(), name='user_login'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
