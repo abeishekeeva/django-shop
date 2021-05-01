@@ -27,3 +27,4 @@ class LoginForm(forms.Form):
         if not user or not user.is_active:
             raise forms.ValidationError("Неверный email или пароль!")
         return self.cleaned_data
+

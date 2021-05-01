@@ -131,5 +131,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 
 CART_SESSION_ID = 'cart'
-CART_SESSION_ID = 'cart'
 

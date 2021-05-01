@@ -3,6 +3,9 @@ from .forms import UserRegistrationForm, LoginForm
 from django.views import generic
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.shortcuts import render
+from .forms import UserRegistrationForm, LoginForm
+from django.views import generic
 # Create your views here.
 
 class UserRegisterView(generic.View):
