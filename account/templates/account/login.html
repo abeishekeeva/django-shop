@@ -21,8 +21,10 @@
                             </ul>        
 
                             <div id="login" >                                
-                                <form class="login" method="post">
+                                <form action="{% url 'account:login' %}" class="login" method="post">
                                     {{form.as_p}}
+                                    {% csrf_token %}
+                                    <input type="submit" value="Login">
                                 </form>
 
                                 <div class="htc__login__btn">

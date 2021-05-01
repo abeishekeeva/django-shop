@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect 
+from django.contrib.auth import authenticate
 from .forms import UserRegistrationForm, LoginForm
 from django.views import generic
 from django.contrib.auth.models import User
@@ -40,11 +41,11 @@ class LoginView(generic.View):
         form = LoginForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data 
-            user = authenticate(request, username=cd['username'], password=cd['password'])
+            user = authenticate(request, username=cd['email'], password=cd['password'])
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return redirect('') #сюда вставить, куда редиректить
+                    return redirect('shop:product_list') #сюда вставить, куда редиректить
                 else:
                     messages.error(request, 'Ваш аккаунт заблокирован')
             else:
