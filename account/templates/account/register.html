@@ -21,13 +21,14 @@
                             </ul>        
 
                             <div id="register" >                                
-                                <form  method="post" action="{% url 'account:register' %}" >
-                                    {% csrf_token %}
+                                <form action="{% url 'account:register' %}" class="login" method="post">
                                     {{form.as_p}}
-                                    <input type="submit" value="Create account">
+                                    {% csrf_token %}
+                                    <input type="submit" value="Register">
                                 </form>
 
-                                  <div class="htc__social__connect">
+                               
+                                <div class="htc__social__connect">
                                     <h2>Or Login With "вставить ссылку на лоигн"</h2>
                                 </div>
                             </div>
