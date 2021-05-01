@@ -22,10 +22,10 @@ class LoginForm(forms.Form):
     email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Введите e-mail', 'label': 'Введите e-mail'}), label='')
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Введите пароль', }), label='')
 
-    def clean(self):
-        email = self.cleaned_data.get('email')
-        password = self.cleaned_data.get('password')
-        user = authenticate(username=email, password=password)
-        if not user or not user.is_active:
-            raise forms.ValidationError("Неверный email или пароль!")
-        return self.cleaned_data
+    # def clean(self):
+    #     email = self.cleaned_data.get('email')
+    #     password = self.cleaned_data.get('password')
+    #     user = authenticate(username=email, password=password)
+    #     if not user or not user.is_active:
+    #         raise forms.ValidationError("Неверный email или пароль!")
+    #     return self.cleaned_data
