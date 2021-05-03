@@ -6,8 +6,7 @@ from . import views
 app_name = 'order'
 
 urlpatterns = [
-    path('order/', views.OrderView.as_view(), name='order'),   
-    path('order_created/', views.OrderView.as_view(), name='order_created'),   
+    path('order/', views.OrderView.as_view(), name='order'),    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

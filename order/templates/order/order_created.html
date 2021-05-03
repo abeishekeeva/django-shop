@@ -1,51 +1,15 @@
 {% extends 'shop/base.html' %}
 {% load static %}
 
-{% include 'shop/header.html' %}
+
 {% block content %}
 <body>
-   
-    <!-- Body main wrapper start -->
-    <div class="wrapper fixed__footer">
-                
-        <!-- Start Login order_created Area -->
-        <div class="htc__login__order_created bg__white ptb--130" style="background: rgba(0, 0, 0, 0) url(images/bg/5.jpg) no-repeat scroll center center / cover ;">
-            <div class="container">
-                
-                <!-- Start Login order_created Content -->
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                        <div class="htc__login__order_created__wrap">
-                            
-                            <ul class="login__order_created__menu" role="tablist">                            
-                                <li role="presentation" class="order_created"><a  role="tab" data-toggle="tab">Register</a></li>
-                            </ul>        
-
-                            <div id="order_created" >                                
-                                <form action="{% url 'order:order' %}" class="login" method="post">
-                                    {{form.as_p}}
-                                    {% csrf_token %}
-                                    <input type="submit" value="Order Created">
-                                </form>
-
-                               
-                                <div class="htc__social__connect">
-                                    <h2>Or Login With "вставить ссылку на лоигн"</h2>
-                                </div>
-                            </div>
-                            <!-- End Single Content -->
-                        </div>
-                    </div>
-                </div>
-                <!-- End Login order_created Content -->
-            </div>
-        </div>
-        <!-- End Login order_created Area -->
-
-
-    </div>
-    {% include 'shop/footer.html' %}
+{% include 'shop/header.html' %}
+<h2 class="section-title-3">Your order is created!</h2>
+{% include 'shop/footer.html' %}
 </body>
 
 
 {% endblock %}
+
+<!-- request.user.authenticated  -->

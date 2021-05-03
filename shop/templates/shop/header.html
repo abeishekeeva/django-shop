@@ -83,7 +83,21 @@
                 <div class="col-md-2 col-sm-4 col-xs-3">  
                     <ul class="menu-extra">
                         <li class="search search__open hidden-xs"><span class="ti-search"></span></li>
-                        <li><span class="ti-user"></span></a></li>
+                        <li>
+                            {% if request.user.is_authenticated %}
+                            <a href="{%url 'account:profile'%}"><span class="ti-user"></span>
+                            {% else %}
+                            <a href='{% url "account:login"%}'></a>
+                            {% endif %}
+                            </li>
+                        <li>
+                            
+                            
+                            
+
+
+
+                        </li>
                         <li class="cart__menu">
                             <a href="{% url 'cart:cart_detail' %}">
                                 <label>{{cart|length}} item{{cart|pluralize:",s" }}</label>
@@ -98,5 +112,6 @@
             </div>
         </div>
     </div>
+    
     <!-- End Mainmenu Area -->
 </header>
