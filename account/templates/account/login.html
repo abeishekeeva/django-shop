@@ -20,9 +20,11 @@
                                 <li role="presentation" class="register"><a  role="tab" data-toggle="tab">Login</a></li>
                             </ul>        
 
-                            <div id="login" >                                
-                                <form class="login" method="post">
+                            <div id="login" >
+                                <form action="{% url 'account:login' %}" class="login" method="post">
                                     {{form.as_p}}
+                                    {% csrf_token %}
+                                    <input type="submit" value="Login">
                                 </form>
 
                                 <div class="htc__login__btn">

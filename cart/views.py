@@ -8,7 +8,7 @@ from django.views.decorators.http import require_POST
 def cart_detail(request):
     cart = Cart(request)
     for item in cart:
-
+        print(item)
         item['update_quantity_form'] = ProductAddForm(initial={
         'quantity': item['quantity'],
         'override': True})
