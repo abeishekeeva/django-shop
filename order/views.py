@@ -3,18 +3,22 @@ from django.views import generic
 from .forms import OrderForm
 from cart.cart import Cart 
 from .models import OrderItem
-
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
 class OrderView(generic.View): 
 
     def get(self, request):
-        form = OrderForm(request.user)
-        return render(request, 'order/order.html', {'form': form})
-
+        form = OrderForm()
+        return render(request, 'order/checkout.html', {'form': form})
+    
+    @login_required(login_url='/login/')
     def post(self, request):
         form = OrderForm(request.POST)
         cart = Cart(request)
         if form.is_valid():
-            order = form.save() #мы уже создали заказ 
+            order = form.save(commit=False) #мы уже создали заказ            
+            order.user = request.user  #Anonymous User
+            order.save() #Заказ сохранен в базу 
             for item in cart:                
                 OrderItem.objects.create(order=order, 
                                         product=item['product'],
@@ -22,6 +26,9 @@ class OrderView(generic.View):
                                         quantity=item['quantity'])
             cart.clear()
             return render(request, 'order/order_created.html')
+
+        return render(request, 'order/checkout.html', {'form': form})
+                
 
 
 
