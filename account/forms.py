@@ -26,4 +26,5 @@ class LoginForm(forms.Form):
     #     user = authenticate(username=email, password=password)
     #     if not user or not user.is_active:
     #         raise forms.ValidationError("Неверный email или пароль!")
+
     #     return self.cleaned_data
