@@ -85,18 +85,10 @@
                         <li class="search search__open hidden-xs"><span class="ti-search"></span></li>
                         <li>
                             {% if request.user.is_authenticated %}
-                            <a href="{%url 'account:profile'%}"><span class="ti-user"></span>
+                                <a href="{% url 'account:profile'%}"><span class="ti-user"></span></a>
                             {% else %}
-                            <a href='{% url "account:login"%}'></a>
+                                <a href="{% url 'account:login'%}"><span class="ti-user"></span></a>
                             {% endif %}
-                            </li>
-                        <li>
-                            
-                            
-                            
-
-
-
                         </li>
                         <li class="cart__menu">
                             <a href="{% url 'cart:cart_detail' %}">

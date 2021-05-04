@@ -5,14 +5,16 @@ from cart.cart import Cart
 from .models import OrderItem
 from django.views.generic import View
 from django.contrib.auth.decorators import login_required 
+from django.conf import settings
+from django.contrib.auth.models import User
 
 class OrderView(generic.View): 
 
     def get(self, request):
         form = OrderForm()
         return render(request, 'order/checkout.html', {'form': form})
-
-    # @login_required
+    
+    @login_required(login_url='/login/')
     def post(self, request):
         form = OrderForm(request.POST)
         cart = Cart(request)
@@ -28,6 +30,9 @@ class OrderView(generic.View):
             cart.clear()
             return render(request, 'order/order_created.html')
         return render (request, 'order/checkout.html', {'form':form})
+
+        return render(request, 'order/checkout.html', {'form': form})
+                
 
 
 
