@@ -18,37 +18,43 @@
                             <div class="checkout-form">
                                 <h2 class="section-title-3">Billing details</h2>
                                 <div class="checkout-form-inner">
-                                    <div class="single-checkout-box">
-                                        <input type="text" placeholder="First Name*">
-                                        <input type="text" placeholder="Last Name*">
-                                    </div>
-                                    <div class="single-checkout-box">
-                                        <input type="email" placeholder="Emil*">
-                                        <input type="text" placeholder="Phone*">
-                                    </div>
-                                    <div class="single-checkout-box">
-                                        <textarea name="message" placeholder="Message*"></textarea>
-                                    </div>
-                                    <div class="single-checkout-box select-option mt--40">
-                                        <select>
-                                            <option>Country*</option>
-                                            <option>Bangladesh</option>
-                                            <option>Bangladesh</option>
-                                            <option>Bangladesh</option>
-                                            <option>Bangladesh</option>
-                                        </select>
-                                        <input type="text" placeholder="Company Name*">
-                                    </div>
-                                    <div class="single-checkout-box">
-                                        <input type="email" placeholder="State*">
-                                        <input type="text" placeholder="Zip Code*">
-                                    </div>
-                                    <div class="single-checkout-box checkbox">
-                                        <input id="remind-me" type="checkbox">
-                                        <label for="remind-me"><span></span>Create a Account ?</label>
-                                    </div>
+                                    <form action="{% url 'order:order' %}" class="order" method="post">
+                                    {% csrf_token %}
+                                    {{form.as_p}}
+                                        <input type="submit" value="order">
+                                    </form>
                                 </div>
-                            </div>
+<!--                                    <div class="single-checkout-box">-->
+<!--                                        <input type="text" placeholder="First Name*">-->
+<!--                                        <input type="text" placeholder="Last Name*">-->
+<!--                                    </div>-->
+<!--&lt;!&ndash;                                    <div class="single-checkout-box">&ndash;&gt;-->
+<!--                                        <input type="email" placeholder="Emil*">-->
+<!--                                        <input type="text" placeholder="Phone*">-->
+<!--                                    </div>-->
+<!--                                    <div class="single-checkout-box">-->
+<!--                                        <textarea name="message" placeholder="Message*"></textarea>-->
+<!--                                    </div>-->
+<!--                                    <div class="single-checkout-box select-option mt&#45;&#45;40">-->
+<!--                                        <select>-->
+<!--                                            <option>Country*</option>-->
+<!--                                            <option>Bangladesh</option>-->
+<!--                                            <option>Bangladesh</option>-->
+<!--                                            <option>Bangladesh</option>-->
+<!--                                            <option>Bangladesh</option>-->
+<!--                                        </select>-->
+<!--                                        <input type="text" placeholder="Company Name*">-->
+<!--                                    </div>-->
+<!--                                    <div class="single-checkout-box">-->
+<!--                                        <input type="email" placeholder="State*">-->
+<!--                                        <input type="text" placeholder="Zip Code*">-->
+<!--                                    </div>-->
+<!--                                    <div class="single-checkout-box checkbox">-->
+<!--                                        <input id="remind-me" type="checkbox">-->
+<!--                                        <label for="remind-me"><span></span>Create a Account ?</label>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
                             <!-- End Checkbox Area -->
                             <!-- Start Payment Box -->
                             <div class="payment-form">

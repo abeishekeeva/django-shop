@@ -21,17 +21,10 @@
                             </ul>        
 
                             <div id="login" >                                
-<<<<<<< HEAD
-                                <form class="login" method="post" action="{% url 'account:login' %}">
-                                    {% csrf_token %}
-                                    {{login_form.as_p}}
-                                    <input type="submit" value="Log in">
-=======
                                 <form action="{% url 'account:login' %}" class="login" method="post">
                                     {{form.as_p}}
                                     {% csrf_token %}
                                     <input type="submit" value="Login">
->>>>>>> origin
                                 </form>
 
 

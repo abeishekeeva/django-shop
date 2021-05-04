@@ -132,4 +132,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 CART_SESSION_ID = 'cart'
 
+LOGIN_URL ='login/'
 

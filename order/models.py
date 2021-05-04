@@ -2,6 +2,7 @@ from django.db import models
 from shop.models import Product
 from django.contrib.auth.models import User
 
+
 class Order(models.Model): # One-To-One 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     address = models.CharField(max_length=250)
@@ -9,6 +10,8 @@ class Order(models.Model): # One-To-One
     paid = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    country = models.CharField(max_length=200)
+    city = models.CharField(max_length=200)
 
     class Meta:
         ordering = ('-created_at',)
