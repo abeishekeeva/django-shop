@@ -32,8 +32,8 @@
                                 <ul class="dropdown">                                                                                                                                         
                                     <li><a href="{% url 'cart:cart_detail' %}">cart</a></li>
                                     <li><a href="wishlist.html">wishlist</a></li>
-                                    <li><a href="checkout.html">checkout</a></li>
-                                    <li><a href="team.html">team</a></li>                                    
+                                    <li><a href="{% url 'order:order' %}">checkout</a></li>
+                                                                       
                                 </ul>
                             </li>
                             <li><a href='{% url "shop:contact" %}'>contact</a></li>

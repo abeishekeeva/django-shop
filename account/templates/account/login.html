@@ -21,7 +21,7 @@
                             </ul>        
 
                             <div id="login" >                                
-                                <form class="login" method="post" action="{% url 'account:user_login' %}">
+                                <form class="login" method="post" action="{% url 'account:login' %}">
                                     {% csrf_token %}
                                     {{form.as_p}}
                                     <input type="submit"  value="Log in">

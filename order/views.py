@@ -14,7 +14,7 @@ class OrderView(generic.View):
         form = OrderForm()
         return render(request, 'order/checkout.html', {'form': form})
     
-    @login_required(login_url='/login/')
+    # @login_required(login_url='/login/')
     def post(self, request):
         form = OrderForm(request.POST)
         cart = Cart(request)
