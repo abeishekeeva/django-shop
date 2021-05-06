@@ -21,6 +21,7 @@ class UserRegisterView(generic.View):
             if form.is_valid(): 
                 new_user = form.save(commit=False)
                 new_user.username = request.POST['email']
+                
                 new_user.set_password(form.cleaned_data['password1'])
                 new_user.save()                
                 return redirect('account:login') #редирект на логин
