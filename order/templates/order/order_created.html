@@ -5,7 +5,14 @@
 {% block content %}
 <body>
 {% include 'shop/header.html' %}
-<h2 class="section-title-3">Your order is created!</h2>
+<div class="jumbotron text-center" style='background-color:rgb(245, 214, 174);'>
+    <h1 class="display-3">Thank You!</h1>
+    <p class="lead"><strong>Please check your email</strong> for your order details.</p>
+    <hr>
+    
+    <p class="lead">
+      <a class="btn btn-success btn-sm" href="{% url 'shop:product_list' %}" role="button">Continue Shopping</a>
+    </p></div>
 {% include 'shop/footer.html' %}
 </body>
 

@@ -73,11 +73,12 @@
                         <div class="col-md-12">
                             <div class="filter__menu__container">
                                 <div class="product__menu">
-                                    <button data-filter="*"  class="is-checked">All</button>
-                                    <button data-filter=".cat--1">Furnitures</button>
-                                    <button data-filter=".cat--2">Bags</button>
-                                    <button data-filter=".cat--3">Decoration</button>
-                                    <button data-filter=".cat--4">Accessories</button>
+                                    <a href='{% url "shop:product_list" %}' >All</a>
+                                    {% for category in categories %}
+                                   
+                                    <a href='{% url "shop:product_list_by_category" category_slug=category.slug %}' >{{category.name}}</a>
+                                    {% endfor %}
+                                    
                                 </div>
                                 <div class="filter__box">
                                     <a class="filter__menu" href="#">filter</a>
