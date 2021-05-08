@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 def product_list(request, category_slug=None): 
      
     category = None
-    categories = Category.objects.all()
+    categories = Category.objects.order_by('-id')[:5]
     products = Product.objects.all()
 
     if category_slug:
@@ -27,8 +27,5 @@ def product_detail(request, id, slug):
     return render(request, 'shop/detail.html', {'product': product})
 
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 1cd8cb2885fa20310957184f0f67ba12858b7678

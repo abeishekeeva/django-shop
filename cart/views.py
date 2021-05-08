@@ -8,6 +8,7 @@ from django.views.decorators.http import require_POST
 def cart_detail(request):
     cart = Cart(request)
     for item in cart:
+        print(item)
         item['update_quantity_form'] = ProductAddForm(initial={
         'quantity': item['quantity'],
         'override': True})              
@@ -40,4 +41,4 @@ def cart_delete_product(request, product_id):
     return redirect('cart:cart_detail')
 
 
->>>>>>> 1cd8cb2885fa20310957184f0f67ba12858b7678
+

@@ -1,5 +1,6 @@
 myshop/__pycache__
 account/__pycache__
+order/__pycache__
 account/migrations
 shop/__pycache__
 shop/migrations
@@ -8,3 +9,4 @@ db.sqlite3
 cart/__pycache__
 cart/migrations
 static/
+shop-env/

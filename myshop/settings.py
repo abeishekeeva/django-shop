@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop',
     'account',
-    'cart'
+    'cart',
+    'order'
 ]
 
 MIDDLEWARE = [
@@ -127,9 +128,12 @@ STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-<<<<<<< HEAD
-CART_SESSION_ID ='cart'
-=======
-CART_SESSION_ID = 'cart'
 
->>>>>>> 1cd8cb2885fa20310957184f0f67ba12858b7678
+CART_SESSION_ID ='cart'
+
+LOGIN_URL = '/login/'
+LOGOUT_REDIRECT_URL = 'login/'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+

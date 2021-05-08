@@ -1,8 +1,4 @@
 from django.contrib import admin
-<<<<<<< HEAD
-
-# Register your models here.
-=======
 from django.contrib.sessions.models import Session
 import pprint
 
@@ -16,4 +12,3 @@ class SessionAdmin(admin.ModelAdmin):
     date_hierarchy='expire_date'
 
 admin.site.register(Session, SessionAdmin)
->>>>>>> 1cd8cb2885fa20310957184f0f67ba12858b7678
