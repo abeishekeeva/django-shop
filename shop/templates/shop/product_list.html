@@ -73,10 +73,11 @@
                         <div class="col-md-12">
                             <div class="filter__menu__container">
                                 <div class="product__menu">
-                                    <a href='{% url "shop:product_list" %}' >All</a>
+                                    <button onclick='window.location.href="{% url 'shop:product_list' %}"'>All</button>
+                                    
                                     {% for category in categories %}
-                                   
-                                    <a href='{% url "shop:product_list_by_category" category_slug=category.slug %}' >{{category.name}}</a>
+                                    <button onclick='window.location.href="{% url "shop:product_list_by_category" category_slug=category.slug %}"'>{{category.name}}</button>
+                                    
                                     {% endfor %}
                                     
                                 </div>
