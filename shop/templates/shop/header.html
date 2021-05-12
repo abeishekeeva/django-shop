@@ -17,26 +17,13 @@
                     <nav class="mainmenu__nav hidden-xs hidden-sm">
                         <ul class="main__menu">
                             <li class="drop"><a href="index.html">Home</a></li>
-                            <li class="drop"><a href="portfolio-card-box-2.html">portfolio</a>
-                                <ul class="dropdown">
-                                    <li><a href="portfolio-card-box-2.html">portfolio</a></li>
-                                    <li><a href="single-portfolio.html">Single portfolio</a></li>
-                                </ul>
-                            </li>
-                            <li class="drop"><a href="blog.html">Blog</a>
-                                <ul class="dropdown">
-                                    <li><a href="blog.html">blog 3 column</a></li>
-                                    <li><a href="blog-details.html">Blog details</a></li>
-                                </ul>
-                            </li>
                             <li class="drop"><a href="{% url 'shop:product_list' %}">Shop</a>
                             </li>
                             <li class="drop"><a href="#">pages</a>
                                 <ul class="dropdown">                                                                                                                                         
                                     <li><a href="{% url 'cart:cart_detail' %}">cart</a></li>
                                     <li><a href="wishlist.html">wishlist</a></li>
-                                    <li><a href="checkout.html">checkout</a></li>
-                                    <li><a href="team.html">team</a></li>                                    
+                                    <li><a href="{% url 'order:order'%}">checkout</a></li>                                                                   
                                 </ul>
                             </li>
                             <li><a href="contact.html">contact</a></li>
