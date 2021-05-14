@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 def product_list(request, category_slug=None): 
      
     category = None
-    categories = Category.objects.all()
+    categories = Category.objects.order_by('-pk')[:5]
     products = Product.objects.all()
 
     if category_slug:

@@ -9,7 +9,7 @@ from django.utils.html import strip_tags
 
 @receiver(post_save, sender=Order)
 def notify_user_on_order(sender, instance, **kwargs):
-    if instance.updated_at is not None or instance.paid != True or instance.user.email is NotImplemented:
+    if instance.updated_at is not None or instance.paid != False or instance.user.email is NotImplemented:
         pass
 
     else:
