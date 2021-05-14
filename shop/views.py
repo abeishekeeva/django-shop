@@ -7,14 +7,18 @@ from cart.forms import ProductAddForm
 def product_list(request, category_slug=None): 
 
     category = None
+<<<<<<< HEAD
     categories = Category.objects.all().order_by('-id')[:5]
+=======
+    categories = Category.objects.order_by('-id')[:5]
+>>>>>>> origin
     products = Product.objects.all()
 
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
 
-    paginator = Paginator(products, 2)
+    paginator = Paginator(products, 12)
     page_number = request.GET.get('page')
     products = paginator.get_page(page_number)
 

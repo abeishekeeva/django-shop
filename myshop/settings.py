@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,9 +41,8 @@ INSTALLED_APPS = [
     'account',
     'cart',
     'order',
-    'coupon'
+    # 'coupon'
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -135,5 +134,6 @@ CART_SESSION_ID = 'cart'
 
 LOGIN_URL = '/login/'
 LOGOUT_REDIRECT_URL = 'login/'
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

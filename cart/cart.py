@@ -23,8 +23,14 @@ class Cart:
         if override_quantity:
             self.cart[product_id]['quantity'] = quantity
         else:
+<<<<<<< HEAD
             self.cart[product_id]['quantity'] += 1
 
+=======
+            self.cart[product_id]['quantity'] += 1 
+            
+                            
+>>>>>>> origin
         self.save()
 
     def remove(self, product):

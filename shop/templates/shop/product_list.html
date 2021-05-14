@@ -71,6 +71,7 @@
                             <div class="filter__menu__container">
                                 <div class="product__menu">
                                     <a href="{% url 'shop:product_list' %}">All</a>
+<<<<<<< HEAD
                                      {% for category in categories %}
 
                                     <a href= "{% url 'shop:product_list_by_category' category_slug=category.slug %}">{{category.name}} </a>
@@ -78,6 +79,13 @@
 <!--                                    <button data-filter=".cat&#45;&#45;2">Bags</button>-->
 <!--                                    <button data-filter=".cat&#45;&#45;3">Decoration</button>-->
 <!--                                    <button data-filter=".cat&#45;&#45;4">Accessories</button>-->
+=======
+
+                                    {% for category in categories %}
+                                        <a href="{% url 'shop:product_list_by_category' category_slug=category.slug %}">{{category.name}}</a>
+                                    {% endfor %}
+                        
+>>>>>>> origin
                                 </div>
                                 <div class="filter__box">
                                     <a class="filter__menu" href="#">filter</a>

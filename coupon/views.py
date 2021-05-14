@@ -1,4 +1,5 @@
 from django.shortcuts import render
+<<<<<<< HEAD
 from .models import Coupon
 from. forms import CouponForm
 from django.shortcuts import redirect
@@ -19,3 +20,7 @@ def apply_coupon(request):
         except Coupon.DoesNotExist:
             request.session['coupon_id'] = None
     return redirect('cart:cart_detail')
+=======
+
+# Create your views here.
+>>>>>>> origin
