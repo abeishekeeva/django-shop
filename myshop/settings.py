@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'account',
     'cart',
     'order',
-    # 'coupon'
+    'coupon'
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
