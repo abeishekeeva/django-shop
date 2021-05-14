@@ -7,11 +7,7 @@ from cart.forms import ProductAddForm
 def product_list(request, category_slug=None): 
 
     category = None
-<<<<<<< HEAD
-    categories = Category.objects.all().order_by('-id')[:5]
-=======
     categories = Category.objects.order_by('-id')[:5]
->>>>>>> origin
     products = Product.objects.all()
 
     if category_slug:
