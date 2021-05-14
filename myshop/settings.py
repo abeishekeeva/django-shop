@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'shop',
     'account',
     'cart',
-    'order'
+    'order',
+    'coupon'
 ]
 
 MIDDLEWARE = [
@@ -132,5 +133,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 CART_SESSION_ID = 'cart'
 
-LOGIN_URL ='login/'
+LOGIN_URL = '/login/'
+LOGOUT_REDIRECT_URL = 'login/'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

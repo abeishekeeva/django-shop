@@ -1,1 +1,18 @@
-you
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'shop/header.html' %}
+
+<div class="jumbotron text-center" style="background-color: green;">
+  <h1 class="display-3">Thank You!</h1>
+  <p class="lead"><strong>Please check your email</strong> for further instructions on how to complete your account setup.</p>
+  <hr>
+  <p>
+    Having trouble? <a href="">Contact us</a>
+  </p>
+  <p class="lead">
+    <a class="btn-warning" href="{% url 'shop:product_list' %}" role="button">Continue to homepage</a>
+  </p></div>
+{% endblock %}

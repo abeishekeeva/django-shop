@@ -4,21 +4,22 @@ from .forms import OrderForm
 from cart.cart import Cart 
 from .models import OrderItem
 from django.contrib.auth.decorators import login_required
-
-class OrderView(generic.View): 
+from django.conf import settings
+class OrderView(generic.View):
 
     def get(self, request):
         form = OrderForm()
         return render(request, 'order/checkout.html', {'form': form})
 
+    # @login_required(login_url='/login/')
     def post(self, request):
         form = OrderForm(request.POST)
         cart = Cart(request)
         if form.is_valid():
-            order = form.save(commit=False)#мы уже создали заказ
-            order.user = request.user #
-            order.save() # заказ сахранен в базу данных
-            for item in cart:                
+            order = form.save(commit=False) #мы уже создали заказ
+            order.user = request.user  #Anonymous User
+            order.save() #Заказ сохранен в базу 
+            for item in cart:
                 OrderItem.objects.create(order=order, 
                                         product=item['product'],
                                         price=item['price'],
@@ -27,8 +28,6 @@ class OrderView(generic.View):
             return render(request, 'order/order_created.html')
 
         return render(request, 'order/checkout.html', {'form': form})
-
-
 
 
 

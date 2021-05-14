@@ -7,6 +7,7 @@ from .cart import Cart
 from shop.models import Product, Category
 from .forms import ProductAddForm
 from django.views.decorators.http import require_POST
+from coupon.forms import CouponForm
 
 
 def cart_detail(request):
@@ -16,8 +17,8 @@ def cart_detail(request):
         item['update_quantity_form'] = ProductAddForm(initial={
         'quantity': item['quantity'],
         'override': True})              
-        print(item)
-    return render(request, 'cart/cart.html', {'cart': cart})
+    coupon_form = CouponForm()
+    return render(request, 'cart/cart.html', {'cart': cart, 'coupon_form': coupon_form})
 
 
 def cart_add_from_main(request, product_id):
@@ -45,5 +46,7 @@ def cart_delete_product(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     cart.remove(product)
     return redirect('cart:cart_detail')
+
+
 
 

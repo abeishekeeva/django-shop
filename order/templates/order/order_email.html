@@ -1,0 +1,24 @@
+<h1> Hello , {{ order.user.username }}!</h1>
+
+<h3> yoru order {{ order.id }}</h3>
+
+<table>
+
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quontity</th>
+            <th>Price</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    {% for item in order.items %}
+        <tr>
+            <th>{{ item.product.name}}</th>
+            <th>{{ item.quantity }}</th>
+            <th>{{ item.get_cost }}</th>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

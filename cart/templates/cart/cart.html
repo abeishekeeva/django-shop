@@ -57,8 +57,15 @@
                                     <div class="coupon">
                                         <h3>Coupon</h3>
                                         <p>Enter your coupon code if you have one.</p>
-                                        <input type="text" placeholder="Coupon code" />
-                                        <input type="submit" value="Apply Coupon" />
+                                        <form action="" method="Post">
+                                            {% csrf_token %}
+                                            {{ coupon_form }}
+
+<!--                                            <input type="text" placeholder="Coupon code" />-->
+<!--                                            <input type="submit" value="Apply Coupon" />-->
+
+                                        </form>
+
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-5 col-xs-12">
@@ -100,7 +107,7 @@
                                             </tbody>
                                         </table>
                                         <div class="wc-proceed-to-checkout">
-                                            <a href="checkout.html">Proceed to Checkout</a>
+                                            <a href="{% url 'order:order' %}">Proceed to Checkout</a>
                                         </div>
                                     </div>
                                 </div>

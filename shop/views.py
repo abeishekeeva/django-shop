@@ -7,7 +7,7 @@ from cart.forms import ProductAddForm
 def product_list(request, category_slug=None): 
 
     category = None
-    categories = Category.objects.all()
+    categories = Category.objects.all().order_by('-id')[:5]
     products = Product.objects.all()
 
     if category_slug:

@@ -16,13 +16,13 @@
                 <div class="col-md-8 col-lg-8 col-sm-6 col-xs-6">
                     <nav class="mainmenu__nav hidden-xs hidden-sm">
                         <ul class="main__menu">
-                            <li class="drop"><a href="index.html">Home</a></li>
-                            <li class="drop"><a href="portfolio-card-box-2.html">portfolio</a>
-                                <ul class="dropdown">
-                                    <li><a href="portfolio-card-box-2.html">portfolio</a></li>
-                                    <li><a href="single-portfolio.html">Single portfolio</a></li>
-                                </ul>
-                            </li>
+<!--                            <li class="drop"><a href="index.html">Home</a></li>-->
+<!--                            <li class="drop"><a href="portfolio-card-box-2.html">portfolio</a>-->
+<!--                                <ul class="dropdown">-->
+<!--                                    <li><a href="portfolio-card-box-2.html">portfolio</a></li>-->
+<!--                                    <li><a href="single-portfolio.html">Single portfolio</a></li>-->
+<!--                                </ul>-->
+<!--                            </li>-->
                             <li class="drop"><a href="blog.html">Blog</a>
                                 <ul class="dropdown">
                                     <li><a href="blog.html">blog 3 column</a></li>
@@ -82,11 +82,10 @@
                     <ul class="menu-extra">
                         <li class="search search__open hidden-xs"><span class="ti-search"></span></li>
                         <li>
-                            {% if user.is_authenticated %}
-                            <a href="{% url 'account/account/login' %}"><span class="ti-user"></span></a>
+                            {% if request.user.is_authenticated %}
+                                <a href="{% url 'account:profile'%}"><span class="ti-user"></span></a>
                             {% else %}
-                            {% url 'account/account/profile.html' %}
-
+                                <a href="{% url 'account:login'%}"><span class="ti-user"></span></a>
                             {% endif %}
                         </li>
                         <li class="cart__menu">
