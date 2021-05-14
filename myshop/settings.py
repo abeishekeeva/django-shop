@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'shop',
     'account',
     'cart',
-    'order'
+    'order',
+    'coupon'
 ]
 
 MIDDLEWARE = [
@@ -135,3 +136,4 @@ LOGIN_URL = '/login/'
 LOGOUT_REDIRECT_URL = 'login/'
 
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

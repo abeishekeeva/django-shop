@@ -32,4 +32,7 @@ class OrderItem(models.Model): #One-To-Many
         return f"Orderitem {self.id} - Order {self.order.id}"
     
     def get_cost(self):
-        return self.price * self.quantity
+        return self.price * self.quantity 
+
+
+

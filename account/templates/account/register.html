@@ -25,12 +25,16 @@
                                 <form action="{% url 'account:register' %}" class="login" method="post">
                                     {{form.as_p}}
                                     {% csrf_token %}
-                                    <input type="submit" value="Register">
+
+                                    <div class="htc__login__btn">
+                                        <input name="htc__login__btn" type="submit" value="Register">                                        
+                                    </div>  
+                                    
                                 </form>
 
 
                                 <div class="htc__social__connect">
-                                    <h2>Or Login With "вставить ссылку на лоигн"</h2>
+                                    <h2><a href="{% url 'account:login' %}">Or Login Here</a></h2>
                                 </div>
                             </div>
                             <!-- End Single Content -->

@@ -1,23 +1,27 @@
-<h1>Здравствуйте, {{order.user.username!}}</h1>
+<h1>Здравствуйте, {{order.user.username}}!</h1>
 
-<h3> Ваш заказ {{order.id}} оформлен {{order.created_at}}</h3>
+<h3>Ваш заказ {{order.id}} оформлен {{order.created_at}}</h3>
 
 <table>
     <thead>
         <tr>
             <th>Товар</th>
-            <th>Колличество</th>
+            <th>Кол-во</th>
             <th>Стоимость</th>
         </tr>
     </thead>
+
     <tbody>
-        {% for item in order.items %}
+                
+            {% for item in order.items.all %}
             <tr>
                 <th>{{item.product.name}}</th>
-                <th>{{item.quantity}}</th>
+                <th>{{item.quanity}}</th>
                 <th>{{item.get_cost}}</th>
             </tr>
-        {% endif %}
+            {% endfor %}
+                    
 
     </tbody>
+
 </table>
