@@ -53,6 +53,10 @@
                                     <div class="coupon">
                                         <h3>Coupon</h3>
                                         <p>Enter your coupon code if you have one.</p>
+                                        <form action="" method="POST">
+                                            {{csrf_token}}
+                                            {{coupon_form}}
+                                        </form>
                                         <input type="text" placeholder="Coupon code" />
                                         <input type="submit" value="Apply Coupon" />
                                     </div>
