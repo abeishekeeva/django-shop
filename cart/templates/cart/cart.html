@@ -103,10 +103,11 @@
                                                     <td class="">${{ cart.get_total_price }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
-                                                        "{{ cart.coupon.code }}" coupon
-                                                        ({{ cart.coupon.discount }}% off)
-                                                    </td>
+                                                    <th>
+                                                        Discount
+<!--                                                        "{{ cart.coupon.code }}" coupon-->
+<!--                                                        ({{ cart.coupon.discount }}% off)-->
+                                                    </th>
                                                     <td colspan="4"></td>
                                                     <td class="num neg">
                                                         - ${{ cart.get_discount|floatformat:"2" }}
