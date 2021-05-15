@@ -55,7 +55,7 @@
                                         <h3>Coupon</h3>
                                         <p>Enter your coupon code if you have one.</p>
 
-                                        <form action="" method="POST">
+                                        <form action="{% url 'coupon:coupon_apply' %} "method="POST">
                                             {%csrf_token%}
                                             {{coupon_form}}
                                             <input type="submit" value="Apply Coupon" />
@@ -123,7 +123,7 @@
 
                                             </tbody>
                                         </table>
-                                        <form action="{% url 'coupon:coupon ' %}" method="post">
+                                        <form action="{% url 'coupon:coupon_apply' %}" method="post">
                                             {{ coupon_apply_form }}
                                             <input type="submit" value="Apply">
                                             {% csrf_token %}

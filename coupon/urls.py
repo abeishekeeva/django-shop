@@ -5,5 +5,5 @@ app_name = 'coupon'
 
 
 urlpatterns = [
-    url('coupon', views.coupon_apply, name='coupon'),
+    url('coupon_apply/', views.coupon_apply, name='coupon_apply'),
 ]
