@@ -3,16 +3,19 @@ from .cart import Cart
 from shop.models import Product 
 from .forms import ProductAddForm
 from django.views.decorators.http import require_POST
+from coupon.forms import CouponForm
 
 
 def cart_detail(request):
-    cart = Cart(request)
+    cart = Cart(request) 
     for item in cart:
         print(item)
         item['update_quantity_form'] = ProductAddForm(initial={
         'quantity': item['quantity'],
-        'override': True})              
-    return render(request, 'cart/cart.html', {'cart': cart})
+        'override': True})    
+    coupon_form = CouponForm()
+    return render(request, 'cart/cart.html', {'cart': cart, 'coupon_form': coupon_form})     
+
 
 
 def cart_add_from_main(request, product_id):

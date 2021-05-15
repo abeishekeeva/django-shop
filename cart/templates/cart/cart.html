@@ -54,8 +54,26 @@
                                     <div class="coupon">
                                         <h3>Coupon</h3>
                                         <p>Enter your coupon code if you have one.</p>
-                                        <input type="text" placeholder="Coupon code" />
-                                        <input type="submit" value="Apply Coupon" />
+                                        <form action = "{% url 'coupon:apply_coupon' %}" class="coupon" method = "POST">
+                                            {{csrf_token}}
+                                            {{coupon_form}}
+                                            <input type="submit" value="Apply Coupon" />
+                                        </form>
+                                        <!-- <input type="text" placeholder="Coupon code" />
+                                        <input type="submit" value="Apply Coupon" /> -->
+                                    <!-- {% if cart.coupon %}
+                                    <tr class='subtotal'>
+                                        <td>{% trans 'Subtotal' %}</td>
+                                        <td colspan = '4'></td>
+                                        <td class='num'>{{cart.get_total_price }}</td>
+                                    </tr>
+                                    <tr>
+                                        {% blocktrans with code=cart.coupon.code discount=cart.coupon.discunt %}
+                                        <td>'{{ code }}' coupon ({{ discount }}% off)</td>
+                                        {%ednblocktrans%}
+                                        <td colspan ='4'></td>
+                                        <td class='num_neg'> - ${{cart.get-discount|floatformat:'2' }}</td>
+                                    </tr> -->
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-5 col-xs-12">
