@@ -71,36 +71,36 @@
                                         <h2>Cart Totals</h2>
                                         <table>
                                             <tbody>
-                                                <tr class="cart-subtotal">
-                                                    <th>Subtotal</th>
-                                                    <td><span class="amount">{{cart.total_price}}</span></td>
-                                                </tr>
-                                                <tr class="shipping">
-                                                    <th>Shipping</th>
-                                                    <td>
-                                                        <ul id="shipping_method">
-                                                            <li>
-                                                                <input type="radio" />
-                                                                <label>
-                                                                    Flat Rate: <span class="amount">£7.00</span>
-                                                                </label>
-                                                            </li>
-                                                            <li>
-                                                                <input type="radio" />
-                                                                <label>
-                                                                    Free Shipping
-                                                                </label>
-                                                            </li>
-                                                            <li></li>
-                                                        </ul>
-                                                        <p><a class="shipping-calculator-button" href="#">Calculate Shipping</a></p>
+<!--                                                <tr class="cart-subtotal">-->
+<!--                                                    <th>Subtotal</th>-->
+<!--                                                    <td><span class="amount">{{cart.total_price}}</span></td>-->
+<!--                                                </tr>-->
+<!--                                                <tr class="shipping">-->
+<!--                                                    <th>Discount</th>-->
+<!--                                                    <td>-->
+<!--                                                        <ul id="shipping_method">-->
+<!--                                                            <li>-->
+<!--                                                                <input type="radio" />-->
+<!--                                                                <label>-->
+<!--                                                                    Flat Rate: <span class="amount">£7.00</span>-->
+<!--                                                                </label>-->
+<!--                                                            </li>-->
+<!--                                                            <li>-->
+<!--                                                                <input type="radio" />-->
+<!--                                                                <label>-->
+<!--                                                                    Free Shipping-->
+<!--                                                                </label>-->
+<!--                                                            </li>-->
+<!--                                                            <li></li>-->
+<!--                                                        </ul>-->
+<!--                                                        <p><a class="shipping-calculator-button" href="#">Calculate Shipping</a></p>-->
                                                     </td>
                                                 </tr>
                                                {% if cart.coupon %}
                                                 <tr class="subtotal">
-                                                    <td>Subtotal</td>
-                                                    <td colspan="4"></td>
-                                                    <td class="num">${{ cart.get_total_price }}</td>
+                                                    <th>Subtotal</th>
+                                                    <th colspan="4"></th>
+                                                    <td class="">${{ cart.get_total_price }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>
@@ -114,7 +114,7 @@
                                                 </tr>
                                             {% endif %}
                                             <tr class="total">
-                                                <td>Total</td>
+                                                <th>Total</th>
                                                 <td colspan="4"></td>
                                                 <td class="num">
                                                     ${{ cart.get_total_price_after_discount|floatformat:"2" }}
@@ -125,7 +125,7 @@
                                         </table>
                                         <form action="{% url 'coupon:coupon_apply' %}" method="post">
                                             {{ coupon_apply_form }}
-                                            <input type="submit" value="Apply">
+<!--                                            <input type="submit" value="Apply">-->
                                             {% csrf_token %}
                                         </form>
                                         <div class="wc-proceed-to-checkout">
