@@ -31,7 +31,7 @@ class OrderView(generic.View):
                 OrderItem.objects.create(order=order, 
                                         product=item['product'],
                                         price=item['price'],
-                                        quantity=item['quantity'])
+                                        quantity=item['quantity'])             
             cart.clear()
             notify_user_on_order.delay(order.id)
             return render(request, 'order/order_created.html')

@@ -5,9 +5,9 @@ from django.views.decorators.http import require_GET, require_POST
 @require_POST
 def apply_coupon(request): 
     now = timezone.now()
-    coupon_form = CouponForm(request.POST)
-    if coupon_form.is_valid:
-        cd = coupon_form.cleaned_data['coupon_code']
+    form = CouponForm(request.POST)
+    if form.is_valid:
+        cd = form.cleaned_data['coupon_code']
         try:
             coupon = Coupon.objects.get(code__iexact = code,
                                         valid_from__lte = now,
