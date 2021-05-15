@@ -1,0 +1,24 @@
+<h1>Здравствуйте, {{order.user.username}}!</h1>
+
+<h3>Спасибо за регистрацию на сайте онлайн-магазина одежды TMART!</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Товар</th>
+            <th>Количество</th>
+            <th>Стоимость</th>
+        </tr>
+    </thead>
+
+    <tbody>
+            {{order.items}}
+            {% for item in order.order_items %}
+                <tr>
+                    <th>{{ item.product.name}}</th>
+                    <th>{{ item.product.name}}</th>
+                    <th>{{ item.get_total_cost}}</th>
+                </tr>
+            {% endfor %}
+    </tbody>
+</table>

@@ -21,25 +21,16 @@
                             </ul>        
 
                             <div id="login" >                                
-                                <form action="{% url 'account:login' %}" class="login" method="post">
-                                    {{form.as_p}}
+                                <form class="login" method="post" action="{% url 'account:login' %}">
                                     {% csrf_token %}
-                                    
-                                    <div class="htc__login__btn">
-                                        <input name="htc__login__btn" type="submit" value="Login">                                        
-                                    </div>         
-                                    
-                                    
-                                    <div class="htc__social__connect">
-                                        <h2><a href="{% url 'account:register' %}">Or Register Here</a></h2>
-                                    </div>
-                                </form>
+                                    {{form.as_p}}
+                                    <input type="submit"  value="Log in">
+                                  </form>
 
-                                <!-- <div class="htc__login__btn">
-                                    <a href="#">login</a>
-                                </div> -->
-
-                                <!-- <div class="htc__social__connect">
+                                <div class="htc__login__btn">
+                                    <!-- <a href="{% url 'shop:product_list' %}">login</a> -->
+                                </div>
+                                <div class="htc__social__connect">
                                     <h2>Or Login With </h2>
                                     <ul class="htc__soaial__list">
                                         <li><a class="bg--twitter" href="#"><i class="zmdi zmdi-twitter"></i></a></li>

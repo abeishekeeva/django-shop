@@ -30,12 +30,9 @@ def cart_add_from_main(request, product_id):
 @require_POST
 def cart_add_product(request, product_id):
     cart = Cart(request)
-    
     product = get_object_or_404(Product, id=product_id)        
     form = ProductAddForm(request.POST)
-
-    
-    if form.is_valid(): 
+    if form.is_valid():
         cd = form.cleaned_data
         cart.add(product, quantity=cd['quantity'], override_quantity=cd['override'])
         

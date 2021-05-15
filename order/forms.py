@@ -6,3 +6,6 @@ class OrderForm(forms.ModelForm):
         model = Order 
         fields = ['address', 'postal_code', 'country', 'city']
 
+
+
+

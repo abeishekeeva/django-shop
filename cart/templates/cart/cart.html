@@ -1,18 +1,16 @@
-
 {% extends 'shop/base.html' %}
 {% load static %}
 
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/cart.css' %}">
     {% include 'shop/header.html' %}
-        
+
         <!-- cart-main-area start -->
         <div class="cart-main-area ptb--120 bg__white">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <form action="#">               
-
+                        <form action="#">
                             <div class="table-content table-responsive">
                                 <table>
                                     <thead>
@@ -26,7 +24,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
                                         {% for item in cart %}
                                             <tr>
                                                 <td class="product-thumbnail"><a href="#"><img src="images/product/4.png" alt="product img" /></a></td>
@@ -34,17 +31,16 @@
                                                 <td class="product-price"><span class="amount">{{item.price}}</span></td>
                                                 <td class="product-quantity">
                                                     <form action="{% url 'cart:cart_add' item.product.id %}" method="post">
-                                                        {% csrf_token %}                                                        
+                                                        {% csrf_token %}
                                                         {{ item.update_quantity_form.quantity }}
                                                         {{ item.update_quantity_form.override }}
-                                                        <input type="submit" id="update-product-bt" value="Update">                                                        
+                                                        <input type="submit" id="update-product-bt" value="Update">
                                                     </form>
                                                 </td>
                                                 <td class="product-subtotal">{{item.total_price}}</td>
                                                 <td class="product-remove"><a href="{% url 'cart:delete_from_cart' product_id=item.product.id %}">X</a></td>
                                             </tr>
-                                        {% endfor %}                                                                              
-
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
@@ -62,7 +58,7 @@
                                         <form action="" method="POST">
                                             {%csrf_token%}
                                             {{coupon_form}}
-                                            <input type="submit" value="Apply Coupon" /> 
+                                            <input type="submit" value="Apply Coupon" />
                                         </form>
 
                                         <!-- <input type="text" placeholder="Coupon code" />
@@ -100,14 +96,38 @@
                                                         <p><a class="shipping-calculator-button" href="#">Calculate Shipping</a></p>
                                                     </td>
                                                 </tr>
-                                                <tr class="order-total">
-                                                    <th>Total</th>
+                                               {% if cart.coupon %}
+                                                <tr class="subtotal">
+                                                    <td>Subtotal</td>
+                                                    <td colspan="4"></td>
+                                                    <td class="num">${{ cart.get_total_price }}</td>
+                                                </tr>
+                                                <tr>
                                                     <td>
-                                                        <strong><span class="amount">{{cart.total_price}}</span></strong>
+                                                        "{{ cart.coupon.code }}" coupon
+                                                        ({{ cart.coupon.discount }}% off)
                                                     </td>
-                                                </tr>                                           
+                                                    <td colspan="4"></td>
+                                                    <td class="num neg">
+                                                        - ${{ cart.get_discount|floatformat:"2" }}
+                                                    </td>
+                                                </tr>
+                                            {% endif %}
+                                            <tr class="total">
+                                                <td>Total</td>
+                                                <td colspan="4"></td>
+                                                <td class="num">
+                                                    ${{ cart.get_total_price_after_discount|floatformat:"2" }}
+                                                </td>
+                                            </tr>
+
                                             </tbody>
                                         </table>
+                                        <form action="{% url 'coupon:coupon ' %}" method="post">
+                                            {{ coupon_apply_form }}
+                                            <input type="submit" value="Apply">
+                                            {% csrf_token %}
+                                        </form>
                                         <div class="wc-proceed-to-checkout">
                                             <a href="{% url 'order:order' %}">Proceed to Checkout</a>
                                         </div>
@@ -121,4 +141,3 @@
         </div>
         <!-- cart-main-area end -->
 {% endblock %}
-

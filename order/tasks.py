@@ -1,14 +1,33 @@
-from .models import Order 
-from celery import shared_task 
+from __future__ import absolute_import, unicode_literals
+from .models import Order
+from celery import shared_task
+from django.template.loader import render_to_string
 
-@shared_task 
-def notify_user_on_order(order_id):    
-    order = Order.objects.get(id=order_id) #ORM 
-
+@shared_task
+def notify_user_on_order(order_id):
+    print('TEST!!!')
+    order = Order.objects.get(id=order_id)  #ORM 
     subject = 'Thank you for your order!'
-    html_message = render_to_string('order/order_email.html', {'order': order})
-    plain_message = strip_tags(html_message)        
-    from_email = 'From <from@example.com>'
-    to = 'to@example.com'
+    html_message = render_to_string('order/order_email.html', {'order': instance})
+    plain_message = strip_tags(html_message)
+    from_email = 'From <shop@tmart.com>'
+    to = [instance.user.email]
 
     mail.send_mail(subject, plain_message, from_email, [to], html_message=html_message, fail_silently=True)
+
+
+# import string
+
+# from django.contrib.auth.models import User
+# from django.utils.crypto import get_random_string
+
+# from celery import shared_task
+
+# @shared_task
+# def create_random_user_accounts(total):
+#     for i in range(total):
+#         username = 'user_{}'.format(get_random_string(10, string.ascii_letters))
+#         email = '{}@example.com'.format(username)
+#         password = get_random_string(50)
+#         User.objects.create_user(username=username, email=email, password=password)
+#     return '{} random users created with success!'.format(total)

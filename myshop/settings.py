@@ -8,6 +8,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import django
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,7 +40,9 @@ INSTALLED_APPS = [
     'account',
     'cart',
     'order',
-    'coupon'
+    'wishlist',
+    'coupon',
+    
 ]
 
 MIDDLEWARE = [
@@ -127,9 +131,13 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 CART_SESSION_ID = 'cart'
+WISHLIST_SESSION_ID = 'wishlist'
 
 LOGIN_URL = '/login/'
 LOGOUT_REDIRECT_URL = 'login/'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# CELERY_BROKER_URL = 'amqp://localhost'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

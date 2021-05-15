@@ -10,8 +10,8 @@ class Order(models.Model): # One-To-One
     paid = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    country = models.CharField(max_length=250)
-    city = models.CharField(max_length=250)
+    country = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
 
     class Meta:
         ordering = ('-created_at',)
@@ -28,6 +28,7 @@ class OrderItem(models.Model): #One-To-Many
     product = models.ForeignKey(Product, related_name="order_items", on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.PositiveIntegerField(default=1)
+    
 
     def __str__(self):
         return f"Orderitem {self.id} - Order {self.order.id}"
