@@ -33,6 +33,7 @@ def coupon_apply(request):
     if form.is_valid():
         code = form.cleaned_data['coupon_code']
         try:
+<<<<<<< HEAD
             coupon = Coupon.objects.get(code__iexact=code,
                                         valid_from__lte=now,
                                         valid_to__gte=now,
@@ -42,3 +43,14 @@ def coupon_apply(request):
         except Coupon.DoesNotExists:
             request.session['coupon_id'] = None
     return redirect('cart:cart_detail')
+=======
+            coupon = Coupon.objects.get(code=code, active=True)
+            request.session['coupon_id'] = coupon.id
+            print(request.session['coupon_id'])
+        except Coupon.DoesNotExist:
+            request.session['coupon_id'] = None
+    return redirect('card:cart_detail')
+                
+
+
+>>>>>>> cfa0927... addint changes to coupon
