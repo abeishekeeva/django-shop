@@ -165,6 +165,8 @@
                         <div class="product__list another-product-style">
                             <!-- Start Single Product -->
                             {% for product in products %}
+
+
                                 <div class="col-md-3 single__pro col-lg-3 cat--1 col-sm-4 col-xs-12">
                                     <div class="product foo">
                                         <div class="product__inner">
@@ -196,6 +198,7 @@
                                 </div>
                             {% endfor %}
                             
+
                             <!-- End Single Product -->
                         </div>
                     </div>
@@ -204,6 +207,7 @@
                     <div class="row mt--60">
                         <div class="col-md-12">
                             <div class="htc__loadmore__btn">
+
                                 <!-- Вот сюда -->
                                 {% if products.has_previous %}
                                     <a href="?page=1">&laquo; first</a>
@@ -218,6 +222,7 @@
                                 <a href="?page={{ products.next_page_number }}">next</a>
                                 <a href="?page={{ products.paginator.num_pages }}">last &raquo;</a>
                             {% endif %}                                
+
                             </div>
                         </div>
                     </div>
@@ -267,32 +272,32 @@
                                 </div>
                                 <div class="price-box-3">
                                     <div class="s-price-box">
-                                        <span class="new-price">$17.20</span>
-                                        <span class="old-price">$45.00</span>
+                                        <span class="new-price">{{ product.price }}</span>
+<!--                                        <span class="old-price">$45.00</span>-->
                                     </div>
                                 </div>
                                 <div class="quick-desc">
                                     Designed for simplicity and made from high quality materials. Its sleek geometry and material combinations creates a modern look.
                                 </div>
-                                <div class="select__color">
-                                    <h2>Select color</h2>
-                                    <ul class="color__list">
-                                        <li class="red"><a title="Red" href="#">Red</a></li>
-                                        <li class="gold"><a title="Gold" href="#">Gold</a></li>
-                                        <li class="orange"><a title="Orange" href="#">Orange</a></li>
-                                        <li class="orange"><a title="Orange" href="#">Orange</a></li>
-                                    </ul>
-                                </div>
-                                <div class="select__size">
-                                    <h2>Select size</h2>
-                                    <ul class="color__list">
-                                        <li class="l__size"><a title="L" href="#">L</a></li>
-                                        <li class="m__size"><a title="M" href="#">M</a></li>
-                                        <li class="s__size"><a title="S" href="#">S</a></li>
-                                        <li class="xl__size"><a title="XL" href="#">XL</a></li>
-                                        <li class="xxl__size"><a title="XXL" href="#">XXL</a></li>
-                                    </ul>
-                                </div>
+<!--                                <div class="select__color">-->
+<!--                                    <h2>Select color</h2>-->
+<!--                                    <ul class="color__list">-->
+<!--                                        <li class="red"><a title="Red" href="#">Red</a></li>-->
+<!--                                        <li class="gold"><a title="Gold" href="#">Gold</a></li>-->
+<!--                                        <li class="orange"><a title="Orange" href="#">Orange</a></li>-->
+<!--                                        <li class="orange"><a title="Orange" href="#">Orange</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                                <div class="select__size">-->
+<!--                                    <h2>Select size</h2>-->
+<!--                                    <ul class="color__list">-->
+<!--                                        <li class="l__size"><a title="L" href="#">L</a></li>-->
+<!--                                        <li class="m__size"><a title="M" href="#">M</a></li>-->
+<!--                                        <li class="s__size"><a title="S" href="#">S</a></li>-->
+<!--                                        <li class="xl__size"><a title="XL" href="#">XL</a></li>-->
+<!--                                        <li class="xxl__size"><a title="XXL" href="#">XXL</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
                                 <div class="social-sharing">
                                     <div class="widget widget_socialsharing_widget">
                                         <h3 class="widget-title-modal">Share this product</h3>

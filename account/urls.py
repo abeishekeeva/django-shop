@@ -10,6 +10,7 @@ from django.conf.urls import url
 app_name = 'account'
 
 urlpatterns = [
+
     path('register/', views.UserRegisterView.as_view(), name='register'),
     path('profile/', views.profile, name='profile'),
     path('login/', views.LoginView.as_view(), name='login'),

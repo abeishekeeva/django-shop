@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views import generic 
+from django.views import generic
 from .forms import OrderForm
 from cart.cart import Cart 
 from .models import OrderItem
@@ -18,7 +18,6 @@ class OrderView(generic.View):
     def get(self, request):
         form = OrderForm()
         return render(request, 'order/checkout.html', {'form': form})
-    
     # @login_required(login_url='/login/')
     def post(self, request):
         form = OrderForm(request.POST)
@@ -28,7 +27,7 @@ class OrderView(generic.View):
             order.user = request.user  
             order.save()
             for item in cart:                
-                OrderItem.objects.create(order=order, 
+                OrderItem.objects.create(order=order,
                                         product=item['product'],
                                         price=item['price'],
                                         quantity=item['quantity'])             

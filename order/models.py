@@ -1,6 +1,7 @@
 from django.db import models
-from shop.models import Product 
+from shop.models import Product
 from django.contrib.auth.models import User
+
 
 class Order(models.Model): # One-To-One 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -12,7 +13,7 @@ class Order(models.Model): # One-To-One
     country = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
 
-    class Meta: 
+    class Meta:
         ordering = ('-created_at',)
 
     def __str__(self):
@@ -20,7 +21,7 @@ class Order(models.Model): # One-To-One
 
     def get_total_cost(self):
         return sum(item[price] * item[quantity] for item in self.items)
-            
+
 
 class OrderItem(models.Model): #One-To-Many 
     order = models.ForeignKey(Order, related_name="items", on_delete=models.CASCADE)

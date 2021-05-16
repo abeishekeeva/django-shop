@@ -38,4 +38,6 @@ def blog(request):
 
 
 
+def contact_list(request):
+    return render(request, 'shop/contact.html')
 

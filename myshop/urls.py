@@ -19,9 +19,9 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(('shop.urls', 'shop'), namespace='shop')),   
-    path('cart/', include(('cart.urls', 'cart'), namespace='cart')), 
+    path('cart/', include(('cart.urls', 'cart'), namespace='cart')),
     path('account/', include(('account.urls', 'account'), namespace='account')), 
     path('order/', include(('order.urls', 'order'), namespace='order')), 
-    path('wishlist/', include(('wishlist.urls', 'wishlist'), namespace='wishlist')), 
+    path('wishlist/', include(('wishlist.urls', 'wishlist'), namespace='wishlist')),
     path('coupon/', include(('coupon.urls', 'coupon'), namespace='coupon')),
-] 
+]

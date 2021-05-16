@@ -1,8 +1,9 @@
 from django.conf.urls import url
-from .import views
+from . import views
 
 app_name = 'coupon'
 
+
 urlpatterns = [
-url('apply_coupon/', views.apply_coupon, name='apply_coupon'), 
+    url('coupon_apply/', views.coupon_apply, name='coupon_apply'),
 ]
