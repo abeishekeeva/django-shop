@@ -74,7 +74,6 @@
                                     {% for category in categories %}
                                         <a href="{% url 'shop:product_list_by_category' category_slug=category.slug %}">{{category.name}}</a>
                                     {% endfor %}
-
                                 </div>
                                 <div class="filter__box">
                                     <a class="filter__menu" href="#">filter</a>

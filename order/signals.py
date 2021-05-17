@@ -17,4 +17,3 @@ from django.utils.html import strip_tags
 #         to = 'to@example.com'
 
 #         mail.send_mail(subject, plain_message, from_email, [to], html_message=html_message, fail_silently=True)
-
