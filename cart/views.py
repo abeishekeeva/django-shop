@@ -7,8 +7,7 @@ from coupon.forms import *
 
 def cart_detail(request):
     cart = Cart(request)
-    for item in cart:
-        print(item)
+    for item in cart:        
         item['update_quantity_form'] = ProductAddForm(initial={
         'quantity': item['quantity'],
         'override': True})      

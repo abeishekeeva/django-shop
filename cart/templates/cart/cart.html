@@ -56,7 +56,7 @@
                                         <h3>Coupon</h3>
                                         <p>Enter your coupon code if you have one.</p>
                                         
-                                        <form action="" method="POST">
+                                        <form action="{% url 'coupon:apply_coupon'%}" method="POST">
                                             {%csrf_token%}
                                             {{coupon_form}}
                                             <input type="submit" value="Apply Coupon" /> 
@@ -77,30 +77,23 @@
                                                     <td><span class="amount">{{cart.total_price}}</span></td>
                                                 </tr>
                                                 <tr class="shipping">
-                                                    <th>Shipping</th>
+                                                    <th>Discount</th>
                                                     <td>
                                                         <ul id="shipping_method">
                                                             <li>
                                                                 <input type="radio" /> 
                                                                 <label>
-                                                                    Flat Rate: <span class="amount">£7.00</span>
-                                                                </label>
-                                                            </li>
-                                                            <li>
-                                                                <input type="radio" /> 
-                                                                <label>
-                                                                    Free Shipping
+                                                                    {{cart.get_discount}}
                                                                 </label>
                                                             </li>
                                                             <li></li>
-                                                        </ul>
-                                                        <p><a class="shipping-calculator-button" href="#">Calculate Shipping</a></p>
+                                                        </ul>                                                           
                                                     </td>
                                                 </tr>
                                                 <tr class="order-total">
                                                     <th>Total</th>
                                                     <td>
-                                                        <strong><span class="amount">{{cart.total_price}}</span></strong>
+                                                        <strong><span class="amount">{{cart.get_total_price_after_discount}}</span></strong>
                                                     </td>
                                                 </tr>                                           
                                             </tbody>
