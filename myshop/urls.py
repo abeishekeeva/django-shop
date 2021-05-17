@@ -22,6 +22,11 @@ urlpatterns = [
     path('cart/', include(('cart.urls', 'cart'), namespace='cart')),
     path('account/', include(('account.urls', 'account'), namespace='account')), 
     path('order/', include(('order.urls', 'order'), namespace='order')), 
+# <<<<<<< HEAD
     path('wishlist/', include(('wishlist.urls', 'wishlist'), namespace='wishlist')),
     path('coupon/', include(('coupon.urls', 'coupon'), namespace='coupon')),
 ]
+# =======
+#     path('coupon/', include(('coupon.urls', 'coupon'), namespace='coupon')),
+# ]
+# >>>>>>> origin

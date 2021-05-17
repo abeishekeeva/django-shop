@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 # Create your views here.
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_POST
@@ -9,7 +7,7 @@ from .forms import CouponForm
 
 
 @require_POST
-def coupon_apply(request):
+def apply_coupon(request):
     now = timezone.now()
     form = CouponForm(request.POST)
     if form.is_valid():

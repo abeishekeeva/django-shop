@@ -28,7 +28,7 @@ class Cart:
         else:
             self.cart[product_id]['quantity'] += 1
             
-                            
+
         self.save()
 
     def remove(self, product):
@@ -65,8 +65,27 @@ class Cart:
     def save(self):
         # mark the session as "modified" to make sure it gets saved
         self.session.modified = True
+    
+    
+    @property 
+    def coupon(self):
+        if self.coupon_id:
+            return Coupon.objects.get(id=self.coupon_id)
+        return None 
+    
+    def get_discount(self):
+        if self.coupon:
+            return self.coupon.discount / Decimal('100') * self.total_price()            
+        return 0 
 
+# <<<<<<< HEAD
     def get_total_price(self):
+# =======
+#     def get_total_price_after_discount(self):
+#         return self.total_price() - self.get_discount()
+#
+#     def total_price(self):
+# >>>>>>> origin
         return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
 
     @property
