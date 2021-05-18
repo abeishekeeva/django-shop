@@ -59,3 +59,7 @@ class LoginView(generic.View):
 
 def profile(request):
     return render(request, 'account/profile.html')
+
+def my_profile(request):
+    pass 
+
