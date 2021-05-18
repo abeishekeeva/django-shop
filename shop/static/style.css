@@ -698,7 +698,7 @@
     text-transform: capitalize;
     padding-left: 5px;
 }
-.htc__login__btn a {
+.htc__login__btn a, input[name="htc__login__btn"] {
     border: 1px solid #d5d5d5;
     display: inline-block;
     font-size: 20px;
@@ -711,7 +711,12 @@
     color: #4b4b4b;
     text-transform: uppercase;
 }
-.htc__login__btn {
+
+.htc___register_link{
+    margin-top: 3%;
+    text-align: center;
+}
+.htc__login__btn, input[name="htc__login__btn"] {
     text-align: center;
 }
 .login input:last-child {
@@ -754,7 +759,7 @@
     color: #686868 !important;
     font-size: 16px !important;
 }
-.htc__login__btn a:hover {
+.htc__login__btn a:hover, input[name="htc__login__btn"]:hover {
     background: #ff4136;
     color: #fff;
     border: 1px solid #ff4136;

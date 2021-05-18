@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'cart',
     'order',
     'wishlist',
+    'coupon',
     
 ]
 
@@ -142,3 +143,4 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # CELERY_BROKER_URL = 'amqp://localhost'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
