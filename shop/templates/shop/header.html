@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3">
                     <div class="logo">
-                        <a href="index.html">
+                        <a href='{% url "shop:product_list" %}'>
                             <img src="{% static 'images/logo/logo.png' %}" alt="logo">
                         </a>
                     </div>
@@ -16,17 +16,21 @@
                 <div class="col-md-8 col-lg-8 col-sm-6 col-xs-6">
                     <nav class="mainmenu__nav hidden-xs hidden-sm">
                         <ul class="main__menu">
-                            <li class="drop"><a href="index.html">Home</a></li>
+<!--                            <li class="drop"><a href="index.html">Home</a></li>-->
+                            <li class="drop"><a href='{% url "shop:product_list" %}'>Home</a></li>
+                           
+                          
                             <li class="drop"><a href="{% url 'shop:product_list' %}">Shop</a>
                             </li>
                             <li class="drop"><a href="#">pages</a>
                                 <ul class="dropdown">                                                                                                                                         
                                     <li><a href="{% url 'cart:cart_detail' %}">cart</a></li>
-                                    <li><a href="wishlist.html">wishlist</a></li>
-                                    <li><a href="{% url 'order:order'%}">checkout</a></li>                                                                   
+                                    <li><a href="{% url 'wishlist:wishlist_detail' %}">wishlist</a></li>
+                                    <li><a href="{% url 'order:order' %}">checkout</a></li>
+                                                                       
                                 </ul>
                             </li>
-                            <li><a href="contact.html">contact</a></li>
+                            <li><a href='{% url "shop:contact" %}'>contact</a></li>
                         </ul>
                     </nav>
                     
@@ -34,7 +38,19 @@
                     <div class="mobile-menu clearfix visible-xs visible-sm">
                         <nav id="mobile_dropdown">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href='{% url "shop:product_list" %}'>Home</a></li>
+                                
+                                <li><a href='{% url "shop:blog" %}'>blog</a>
+                                    <ul>
+                                       
+                                    </ul>
+                                </li>
+                                
+                                    <!-- <ul>
+                                        <li><a href="blog.html">blog 3 column</a></li>
+                                        <li><a href="blog-details.html">Blog details</a></li>
+                                    </ul> -->
+                                </li>
                                 <li><a href="#">pages</a>
                                     <ul>
                                         <li><a href="about.html">about</a></li>                                        
@@ -45,7 +61,7 @@
                                         <li><a href="login-register.html">login & register</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="contact.html">contact</a></li>
+                                <li><a href='{% url "shop:contact" %}'>contact</a></li>
                             </ul>
                         </nav>
                     </div>                         
@@ -76,5 +92,6 @@
             </div>
         </div>
     </div>
+    
     <!-- End Mainmenu Area -->
 </header>

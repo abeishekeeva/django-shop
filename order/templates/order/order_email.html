@@ -6,22 +6,19 @@
     <thead>
         <tr>
             <th>Товар</th>
-            <th>Кол-во</th>
+            <th>Количество</th>
             <th>Стоимость</th>
         </tr>
     </thead>
 
     <tbody>
-                
-            {% for item in order.items.all %}
-            <tr>
-                <th>{{item.product.name}}</th>
-                <th>{{item.quanity}}</th>
-                <th>{{item.get_cost}}</th>
-            </tr>
+            {{order.items}}
+            {% for item in order.order_items %}
+                <tr>
+                    <th>{{ item.product.name}}</th>
+                    <th>{{ item.product.name}}</th>
+                    <th>{{ item.get_total_cost}}</th>
+                </tr>
             {% endfor %}
-                    
-
     </tbody>
-
 </table>

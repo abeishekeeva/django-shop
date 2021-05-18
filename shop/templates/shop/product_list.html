@@ -36,11 +36,15 @@
                 </div>
             </div>
             <!-- End Search Popap -->
+  
+            <!-- Start Cart Panel -->
+            {% include 'shop/cart-panel.html' %}
+            <!-- End Cart Panel -->
         </div>
         <!-- End Offset Wrapper -->
 
         <!-- Start Bradcaump area -->
-        <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url('static/images/bg/2.jpg') no-repeat scroll center center / cover ;">
+        <!-- <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url('static/images/bg/2.jpg') no-repeat scroll center center / cover ;">
             <div class="ht__bradcaump__wrap">
                 <div class="container">
                     <div class="row">
@@ -57,7 +61,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- End Bradcaump area -->
 
         <!-- Start Our Product Area -->
@@ -69,10 +73,11 @@
                         <div class="col-md-12">
                             <div class="filter__menu__container">
                                 <div class="product__menu">
-                                    <a href="{% url 'shop:product_list' %}">All</a>
-
+                                    <button onclick='window.location.href="{% url 'shop:product_list' %}"'>All</button>
+                                    
                                     {% for category in categories %}
-                                        <a href="{% url 'shop:product_list_by_category' category_slug=category.slug %}">{{category.name}}</a>
+                                    <button onclick='window.location.href="{% url "shop:product_list_by_category" category_slug=category.slug %}"'>{{category.name}}</button>
+                                    
                                     {% endfor %}
                                 </div>
                                 <div class="filter__box">
@@ -160,11 +165,13 @@
 
                             <!-- Start Single Product -->
                             {% for product in products %}
+
+
                                 <div class="col-md-3 single__pro col-lg-3 cat--1 col-sm-4 col-xs-12">
                                     <div class="product foo">
                                         <div class="product__inner">
                                             <div class="pro__thumb">
-                                                <a href="#">
+                                                <a href="{% url 'shop:product_detail' product_id=product.id %}">
                                                     {% if product.image %}
                                                     <img src="{{product.image.url}}" alt="product images">
                                                     {% else %}
@@ -176,12 +183,12 @@
                                                 <ul class="product__action">
                                                     <li><a data-toggle="modal" data-target="#productModal" title="Quick View" class="quick-view modal-view detail-link" href="#"><span class="ti-plus"></span></a></li>
                                                     <li><a title="Add TO Cart" href="{% url 'cart:add_from_main' product_id=product.id %}"><span class="ti-shopping-cart"></span></a></li>
-                                                    <li><a title="Wishlist" href="wishlist.html"><span class="ti-heart"></span></a></li>
+                                                    <li><a title="Wishlist" href="{% url 'wishlist:add_from_main' product_id=product.id %}"><span class="ti-heart"></span></a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="product__details">
-                                            <h2><a href="product-details.html">{{product.name}}</a></h2>
+                                            <h2><a href='{% url "shop:product_detail" product_id=product.id %}'>{{product.name}}</a></h2>
                                             <ul class="product__price">
                                                 <!-- <li class="old__price">{{product.price}}</li> -->
                                                 <li class="new__price">{{product.price}}</li>
@@ -192,6 +199,7 @@
                                 </div>
                             {% endfor %}
                             
+
                             <!-- End Single Product -->
                         </div>
                     </div>
@@ -200,6 +208,7 @@
                     <div class="row mt--60">
                         <div class="col-md-12">
                             <div class="htc__loadmore__btn">
+
                                 <!-- Вот сюда -->
                                 {% if products.has_previous %}
                                     <a href="?page=1">&laquo; first</a>
@@ -264,32 +273,32 @@
                                 </div>
                                 <div class="price-box-3">
                                     <div class="s-price-box">
-                                        <span class="new-price">$17.20</span>
-                                        <span class="old-price">$45.00</span>
+                                        <span class="new-price">{{ product.price }}</span>
+<!--                                        <span class="old-price">$45.00</span>-->
                                     </div>
                                 </div>
                                 <div class="quick-desc">
                                     Designed for simplicity and made from high quality materials. Its sleek geometry and material combinations creates a modern look.
                                 </div>
-                                <div class="select__color">
-                                    <h2>Select color</h2>
-                                    <ul class="color__list">
-                                        <li class="red"><a title="Red" href="#">Red</a></li>
-                                        <li class="gold"><a title="Gold" href="#">Gold</a></li>
-                                        <li class="orange"><a title="Orange" href="#">Orange</a></li>
-                                        <li class="orange"><a title="Orange" href="#">Orange</a></li>
-                                    </ul>
-                                </div>
-                                <div class="select__size">
-                                    <h2>Select size</h2>
-                                    <ul class="color__list">
-                                        <li class="l__size"><a title="L" href="#">L</a></li>
-                                        <li class="m__size"><a title="M" href="#">M</a></li>
-                                        <li class="s__size"><a title="S" href="#">S</a></li>
-                                        <li class="xl__size"><a title="XL" href="#">XL</a></li>
-                                        <li class="xxl__size"><a title="XXL" href="#">XXL</a></li>
-                                    </ul>
-                                </div>
+<!--                                <div class="select__color">-->
+<!--                                    <h2>Select color</h2>-->
+<!--                                    <ul class="color__list">-->
+<!--                                        <li class="red"><a title="Red" href="#">Red</a></li>-->
+<!--                                        <li class="gold"><a title="Gold" href="#">Gold</a></li>-->
+<!--                                        <li class="orange"><a title="Orange" href="#">Orange</a></li>-->
+<!--                                        <li class="orange"><a title="Orange" href="#">Orange</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                                <div class="select__size">-->
+<!--                                    <h2>Select size</h2>-->
+<!--                                    <ul class="color__list">-->
+<!--                                        <li class="l__size"><a title="L" href="#">L</a></li>-->
+<!--                                        <li class="m__size"><a title="M" href="#">M</a></li>-->
+<!--                                        <li class="s__size"><a title="S" href="#">S</a></li>-->
+<!--                                        <li class="xl__size"><a title="XL" href="#">XL</a></li>-->
+<!--                                        <li class="xxl__size"><a title="XXL" href="#">XXL</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
                                 <div class="social-sharing">
                                     <div class="widget widget_socialsharing_widget">
                                         <h3 class="widget-title-modal">Share this product</h3>

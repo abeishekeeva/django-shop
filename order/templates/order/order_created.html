@@ -5,18 +5,21 @@
 {% block content %}
 <body>
 {% include 'shop/header.html' %}
-<div class="jumbotron text-center" style='background-color:white;'>
+<div class="jumbotron text-center" style='background-color:rgb(245, 214, 174);'>
     <h1 class="display-3">Thank You!</h1>
     <p class="lead"><strong>Please check your email</strong> for your order details.</p>
     <hr>
-    <p>
-      Having trouble? <a href="">Contact us</a>
-    </p>
+    
     <p class="lead">
-      <a class="btn btn-warning btn-sm" href="{% url 'shop:product_list' %}" role="button">Continue Shopping</a>
+      <a class="btn btn-success btn-sm" href="{% url 'shop:product_list' %}" role="button">Continue Shopping</a>
     </p></div>
 {% include 'shop/footer.html' %}
 </body>
 
 
 {% endblock %}
+<<<<<<< HEAD
+=======
+
+<!-- request.user.authenticated  -->
+>>>>>>> origin/baidoolot
