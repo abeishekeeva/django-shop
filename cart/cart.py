@@ -78,14 +78,11 @@ class Cart:
             return self.coupon.discount / Decimal('100') * self.total_price()            
         return 0 
 
-# <<<<<<< HEAD
-    def get_total_price(self):
-# =======
+
 #     def get_total_price_after_discount(self):
 #         return self.total_price() - self.get_discount()
 #
 #     def total_price(self):
-# >>>>>>> origin
         return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
 
     @property

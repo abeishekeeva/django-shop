@@ -5,7 +5,6 @@ from django.http import HttpResponse
 
 def product_list(request, category_slug=None): 
     category = None
-# List.objects.order_by('-pk')[0]
     categories = Category.objects.order_by('-id')[:5]
     products = Product.objects.all()
 

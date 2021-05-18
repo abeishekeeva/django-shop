@@ -23,9 +23,7 @@ class OrderView(generic.View):
         form = OrderForm(request.POST)
         cart = Cart(request)
         if form.is_valid():
-            order = form.save(commit=False) #мы уже создали заказ
-            order.user = request.user  #Anonymous User 
-            order = form.save(commit=False) #мы уже создали заказ
+            order = form.save(commit=False) #мы уже создали заказ 
             order.user = request.user  
             order.save()
             for item in cart:                
