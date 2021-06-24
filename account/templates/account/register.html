@@ -10,7 +10,8 @@
         <!-- Start Login Register Area -->
         <div class="htc__login__register bg__white ptb--130" style="background: rgba(0, 0, 0, 0) url(images/bg/5.jpg) no-repeat scroll center center / cover ;">
             <div class="container">
-                
+
+
                 <!-- Start Login Register Content -->
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
@@ -20,7 +21,7 @@
                                 <li role="presentation" class="register"><a  role="tab" data-toggle="tab">Register</a></li>
                             </ul>        
 
-                            <div id="register" >                                
+                            <div id="register" >
                                 <form action="{% url 'account:register' %}" class="login" method="post">
                                     {{form.as_p}}
                                     {% csrf_token %}
@@ -31,7 +32,7 @@
                                     
                                 </form>
 
-                               
+
                                 <div class="htc__social__connect">
                                     <h2><a href="{% url 'account:login' %}">Or Login Here</a></h2>
                                 </div>
@@ -49,5 +50,4 @@
     </div>
     {% include 'shop/footer.html' %}
 </body>
-
 {% endblock %}

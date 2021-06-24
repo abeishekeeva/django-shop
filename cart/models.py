@@ -1,3 +1,6 @@
-from django.db import models
+from .cart import Cart
 
-# Create your models here.
+
+def cart(request):
+    cart = Cart(request)
+    return {'cart':cart}

@@ -1,20 +1,26 @@
-from django import forms 
+from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 
 class UserRegistrationForm(forms.ModelForm):
-    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Введите e-mail', 'label': 'Введите e-mail'}), label='')
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Введите пароль', }), label='')
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Введите пароль повторно', }), label='')    
+    email = forms.EmailField()
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Введите свой пароль',}), label = '')
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Введите пароль повторно',}), label = '')
+    class Meta: 
+        email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Введите e-mail', 'label': 'Введите e-mail'}), label='')
+        password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Введите пароль', }), label='')
+        password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Введите пароль повторно', }), label='')    
 
     class Meta:
         model = User 
-        fields = ('email', )
-
+        fields = ('email',)
+    
     def clean_password2(self):
         cd = self.cleaned_data 
         if cd['password1'] != cd['password2']:
-            raise forms.ValidationError('Пароли не совпадают')
+            raise forms.ValidationError('Ваши пароли не совпадают')
         return cd['password2'] 
+
 
 class LoginForm(forms.Form):
     email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Введите e-mail', 'label': 'Введите e-mail'}), label='')

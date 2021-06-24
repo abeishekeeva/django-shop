@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
 from django.core.paginator import Paginator
+from django.http import HttpResponse
 
 def product_list(request, category_slug=None): 
-     
     category = None
     categories = Category.objects.order_by('-id')[:5]
     products = Product.objects.all()
@@ -22,10 +22,22 @@ def product_list(request, category_slug=None):
         'products': products})
         
 
-def product_detail(request, id, slug):
-    product = get_object_or_404(Product, id=id, slug=slug, available=True)
+def product_detail(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
     return render(request, 'shop/detail.html', {'product': product})
 
+def contact(request):
+    return render(request, 'shop/contact.html', {'contact': contact})
 
 
+def portfolio(request):
+    return render(request, 'shop/portfolio.html', {'portfolio': portfolio})
+
+def blog(request):
+    return render(request, 'shop/blog.html', {'blog': blog})
+
+
+
+def contact_list(request):
+    return render(request, 'shop/contact.html')
 
